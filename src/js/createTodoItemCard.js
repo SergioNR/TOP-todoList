@@ -4,6 +4,7 @@ import { createTodoItemDueDate } from './createTodoItemDueDate.js';
 import { createTodoItemCompletionStatus } from './createTodoItemCompletionStatus.js';
 import { createTodoItemPriority } from './createTodoItemPriority.js';
 import { createTodoItemNotes } from './createTodoItemNotes.js';
+import { createTodoItemProject } from './createTodoItemProject.js';
 
 
 export const createTodoItemCard = (todoItem) => {
@@ -15,7 +16,7 @@ export const createTodoItemCard = (todoItem) => {
     todoCard.appendChild(createTodoItemDueDate(todoItem.dueDate));
     todoCard.appendChild(createTodoItemPriority(todoItem.priority));
     todoCard.appendChild(createTodoItemNotes(todoItem.notes));
-    // todoCard.appendChild(createTodoItemProject(todoItem.project));
+    todoCard.appendChild(createTodoItemProject(todoItem.project));
     todoCard.appendChild(createTodoItemCompletionStatus(todoItem.completed));
 
     return todoCard;
