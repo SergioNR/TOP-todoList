@@ -1,19 +1,18 @@
 import { TodoItem } from "./TodoItem.js";
-import { deleteAllTodos } from "./deleteAllTodos.js";
 import { todoList } from "./index.js";
+import { displayTodos } from "./displayTodos.js";
+import { clearTodosContainer } from "./clearTodosContainer.js";
 
 let createDummyDataButton = document.querySelector('.createDummyDataButton');
 
-
-
 createDummyDataButton.addEventListener('click', () => {
-    deleteAllTodos();
-    createDummyData(); //! this is not working - why?
-    displayTodos();
+    clearTodosContainer();
+    createDummyData(todoList);
+    displayTodos(todoList); 
 })
 
 export const createDummyData = (todoList) => {
-    let dummyTodoItems = 2
+    let dummyTodoItems = 4;
     // prompt('How many dummy To-Dos would you like to create?');
     
     if (isNaN(dummyTodoItems) === true) { 

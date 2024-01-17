@@ -5,12 +5,9 @@ import { deleteAllTodos } from "./deleteAllTodos.js";
 export let todoList = [
 ];
 
-console.log(todoList);
-
 
 createDummyData(todoList);
 
 
-displayTodos(todoList);
 
-deleteAllTodos(todoList);
+// displayTodos(todoList);
