@@ -6,7 +6,7 @@ export let todoList = [
 ];
 
 
-createDummyData(todoList);
+
 
 
 
