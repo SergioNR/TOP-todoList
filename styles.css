@@ -4,6 +4,14 @@ body {
 
 .header {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header h1, p {
+    margin: 0px;
+
 }
 
 .todoListContainer {
