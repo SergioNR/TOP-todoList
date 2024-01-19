@@ -3,7 +3,6 @@ import { createTodoItemCard } from "./createTodoItemCard.js";
 
 export const displayTodos = (todoList) => {
     const todoListContainer = document.querySelector('.todoListContainer');
-    console.log(todoList)
     
     if (todoList.length <= 0) {
     const noTodosText = document.createElement('p');

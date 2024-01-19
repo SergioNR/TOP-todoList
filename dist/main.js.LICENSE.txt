@@ -1,1 +1,15 @@
-//! me va hacer falta una función para limpiar el DOM
+//! Add class to the button
+
+//! Add event listener to the button
+
+//! Add text to the button
+
+//! Change the completion status of the todo item
+
+//! Create a new completion status element
+
+//! Create button
+
+//! Get the completion status element
+
+//! Replace the old completion status element with the new one -- This is currently not working because the function CANT find the old element. I think it's because the old element is not a child of the todoCard. 

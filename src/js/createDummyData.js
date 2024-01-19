@@ -12,7 +12,7 @@ createDummyDataButton.addEventListener('click', () => {
 })
 
 export const createDummyData = (todoList) => {
-    let dummyTodoItems = 4;
+    let dummyTodoItems = 20;
     // prompt('How many dummy To-Dos would you like to create?');
     
     if (isNaN(dummyTodoItems) === true) { 
