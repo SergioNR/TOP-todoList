@@ -1,8 +1,12 @@
-export const toggleTodoItemCompletionStatus = (completionStatus) => {
+export const toggleTodoItemCompletionStatus = (completionStatus, todoCard) => {
   if (completionStatus === true) {
+    todoCard.classList.remove("todoCardGreen");
+    todoCard.classList.add("todoCardRed");
     return completionStatus = false;
   }
   else if (completionStatus === false) {
+    todoCard.classList.remove("todoCardRed");
+    todoCard.classList.add("todoCardGreen");
     return completionStatus = true;
   }
   else {

@@ -39,6 +39,14 @@ body {
     align-items: center;
 }
 
+.todoCardRed {
+    background-color: red;
+}
+
+.todoCardGreen {
+    background-color: green;
+}
+
 .todo-priority  {
     border-radius: 8px;
     padding: 8px 16px;
