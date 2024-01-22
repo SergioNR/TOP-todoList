@@ -12,4 +12,8 @@
 
 //! Get the completion status element
 
+//! Maybe we could use a function to color the background of the card? and recall it after toggling?
+
+//! Refresh the color of the todo item card
+
 //! Replace the old completion status element with the new one -- This is currently not working because the function CANT find the old element. I think it's because the old element is not a child of the todoCard. 

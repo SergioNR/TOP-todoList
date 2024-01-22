@@ -1,5 +1,6 @@
 import { toggleTodoItemCompletionStatus } from "./toggleTodoItemCompletionStatus.js";
 import { createTodoItemCompletionStatus } from "./createTodoItemCompletionStatus.js";
+import { refreshTodoItemCardColor } from "./refreshTodoItemCardColor.js";
 
 
 export const createToggleTodoItemCompletionStatusButton = (todoItem, todoCard) => {
@@ -13,8 +14,12 @@ export const createToggleTodoItemCompletionStatusButton = (todoItem, todoCard) =
 
         todoItem.completed = toggleTodoItemCompletionStatus(todoItem.completed, todoCard); //! Change the completion status of the todo item
 
+
         const newTodoItemCompletionStatus = createTodoItemCompletionStatus(todoItem.completed); //! Create a new completion status element
+
         todoCard.replaceChild(newTodoItemCompletionStatus, oldTodoItemCompletionStatus); //! Replace the old completion status element with the new one -- This is currently not working because the function CANT find the old element. I think it's because the old element is not a child of the todoCard. 
+
+        refreshTodoItemCardColor(todoItem, todoCard); //! Refresh the color of the todo item card
     });
 
     return toggleCompletionStatusButton;
