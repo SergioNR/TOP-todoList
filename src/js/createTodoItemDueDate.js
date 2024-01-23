@@ -1,8 +1,8 @@
 export const createTodoItemDueDate = (dueDate) => {
-    const todoItemDueDate = document.createElement('p');
-    todoItemDueDate.classList.add('todo-due-date');
+  const todoItemDueDate = document.createElement("p");
+  todoItemDueDate.classList.add("todo-due-date");
 
-    todoItemDueDate.innerText = dueDate;
+  todoItemDueDate.innerText = dueDate;
 
-    return todoItemDueDate
-}
+  return todoItemDueDate;
+};

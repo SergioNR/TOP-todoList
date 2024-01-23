@@ -2,35 +2,34 @@ import { toggleTodoItemCompletionStatus } from "./toggleTodoItemCompletionStatus
 import { createTodoItemCompletionStatus } from "./createTodoItemCompletionStatus.js";
 import { refreshTodoItemCardColor } from "./refreshTodoItemCardColor.js";
 
+export const createToggleTodoItemCompletionStatusButton = (
+  todoItem,
+  todoCard,
+) => {
+  const toggleCompletionStatusButton = document.createElement(`button`);
+  toggleCompletionStatusButton.classList.add("toggleCompletionStatus");
+  toggleCompletionStatusButton.innerText = "Toggle completion";
 
-export const createToggleTodoItemCompletionStatusButton = (todoItem, todoCard) => {
-    const toggleCompletionStatusButton = document.createElement(`button`);
-    toggleCompletionStatusButton.classList.add("toggleCompletionStatus");
-    toggleCompletionStatusButton.innerText = "Toggle completion";
+  toggleCompletionStatusButton.addEventListener("click", () => {
+    const oldTodoItemCompletionStatus = todoCard.querySelector(
+      ".todo-completion-status",
+    ); //! Get the completion status element
 
+    todoItem.completed = toggleTodoItemCompletionStatus(todoItem.completed); //! Change the completion status of the todo item
 
-    toggleCompletionStatusButton.addEventListener("click", () => {      
-        const oldTodoItemCompletionStatus = todoCard.querySelector(".todo-completion-status"); //! Get the completion status element
+    const newTodoItemCompletionStatus = createTodoItemCompletionStatus(
+      todoItem.completed,
+    ); //! Create a new completion status element
 
+    todoCard.replaceChild(
+      newTodoItemCompletionStatus,
+      oldTodoItemCompletionStatus,
+    );
 
-        
-        todoItem.completed = toggleTodoItemCompletionStatus(todoItem.completed); //! Change the completion status of the todo item
+    refreshTodoItemCardColor(todoItem, todoCard); //! Refresh the color of the todo item card
+  });
 
+  return toggleCompletionStatusButton;
+};
 
-
-
-        const newTodoItemCompletionStatus = createTodoItemCompletionStatus(todoItem.completed); //! Create a new completion status element
-
-
-        todoCard.replaceChild(newTodoItemCompletionStatus, oldTodoItemCompletionStatus);
-
-        
-        refreshTodoItemCardColor(todoItem, todoCard); //! Refresh the color of the todo item card
-    });
-
-    return toggleCompletionStatusButton;
-}
-
-
-
-// how to select the nodes inside an element -- Check 
+// how to select the nodes inside an element -- Check
