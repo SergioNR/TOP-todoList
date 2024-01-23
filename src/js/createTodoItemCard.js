@@ -7,6 +7,7 @@ import { createTodoItemNotes } from "./createTodoItemNotes.js";
 import { createTodoItemProject } from "./createTodoItemProject.js";
 import { createToggleTodoItemCompletionStatusButton } from "./createToggleTodoItemCompletionStatusButton.js";
 import { refreshTodoItemCardColor } from "./refreshTodoItemCardColor.js";
+import { createTodoItemDeleteButton } from "./createTodoItemDeleteButton.js";
 
 export const createTodoItemCard = (todoItem) => {
   const todoCard = document.createElement("div");
@@ -26,12 +27,11 @@ export const createTodoItemCard = (todoItem) => {
 
 
 
-  // The issue is that the card is not being colored then the todoItem.completed is false
  
   // Build the button items of the card
   todoCard.appendChild(createToggleTodoItemCompletionStatusButton(todoItem, todoCard))
 
-  // TODO -- Delete todoItem button
+  todoCard.appendChild(createTodoItemDeleteButton(todoItem, todoCard));
 
 
   return todoCard;
