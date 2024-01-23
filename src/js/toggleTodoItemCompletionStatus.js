@@ -8,7 +8,7 @@ export const toggleTodoItemCompletionStatus = (completionStatus) => {
     return completionStatus;
   }
   else {
-    console.log(`Something is wrong in the code because the completion status is neither true nor false. on the toggleTodoItemCompletionStatus function`)
+    alert(`Something is wrong in the code because the completion status is neither true nor false. on the toggleTodoItemCompletionStatus function`)
   }
 }
 

@@ -9,6 +9,6 @@ export const refreshTodoItemCardColor = (todoItem, todoCard) => {
     }
 
     else {
-        console.log(`something is wrong in teh refreshTodoItemCardColor function`)
+        alert(`something is wrong in teh refreshTodoItemCardColor function`)
     }
 }

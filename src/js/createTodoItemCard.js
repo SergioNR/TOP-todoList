@@ -19,14 +19,19 @@ export const createTodoItemCard = (todoItem) => {
   todoCard.appendChild(createTodoItemPriority(todoItem.priority));
   todoCard.appendChild(createTodoItemNotes(todoItem.notes));
   todoCard.appendChild(createTodoItemProject(todoItem.project));
-  todoCard.appendChild(createTodoItemCompletionStatus(todoCard, todoItem.completed));
+  todoCard.appendChild(createTodoItemCompletionStatus(todoItem.completed));
 
   refreshTodoItemCardColor(todoItem, todoCard);
 
-  //! Maybe we could use a function to color the background of the card? and recall it after toggling?
 
+
+
+  // The issue is that the card is not being colored then the todoItem.completed is false
+ 
   // Build the button items of the card
   todoCard.appendChild(createToggleTodoItemCompletionStatusButton(todoItem, todoCard))
+
+  // TODO -- Delete todoItem button
 
 
   return todoCard;

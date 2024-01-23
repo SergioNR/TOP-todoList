@@ -29,7 +29,7 @@ export const createDummyData = (todoList) => {
         `high`,
         `this is the notes`,
         `this is the project`,
-        false,
+        true,
     ));
     }
 }
