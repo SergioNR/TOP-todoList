@@ -1,10 +1,7 @@
 import { displayTodos } from "./displayTodos.js";
 import { createDummyData } from "./createDummyData.js";
-import { deleteAllTodos } from "./deleteAllTodos.js";
 import { TodoItem } from "./TodoItem.js";
-
-
-
+import "../css/styles.css"
 
 
 export let todoList = [

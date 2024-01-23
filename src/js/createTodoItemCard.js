@@ -9,6 +9,7 @@ import { createToggleTodoItemCompletionStatusButton } from "./createToggleTodoIt
 import { refreshTodoItemCardColor } from "./refreshTodoItemCardColor.js";
 import { createTodoItemDeleteButton } from "./createTodoItemDeleteButton.js";
 
+
 export const createTodoItemCard = (todoItem) => {
   const todoCard = document.createElement("div");
   todoCard.classList.add("todoCard");
