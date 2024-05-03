@@ -4,13 +4,13 @@ export const createTodoItemPriority = (priority) => {
 
   todoItemPriority.innerText = `Priority: ${priority}`;
 
-  if (priority === `high`) {
+  if (priority.toLowerCase() === `high`) {
     todoItemPriority.classList.add(`todo-priority-high`);
   }
-  if (priority === `medium`) {
+  if (priority.toLowerCase() === `medium`) {
     todoItemPriority.classList.add(`todo-priority-medium`);
   }
-  if (priority === `low`) {
+  if (priority.toLowerCase() === `low`) {
     todoItemPriority.classList.add(`todo-priority-low`);
   }
 
