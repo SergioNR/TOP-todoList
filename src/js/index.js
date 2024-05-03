@@ -2,6 +2,9 @@ import { displayTodos } from "./displayTodos.js";
 import { createDummyData } from "./createDummyData.js";
 import { TodoItem } from "./TodoItem.js";
 import "../css/styles.css";
+import { deleteAllTodos } from "./deleteAllTodos.js";
+import { cycleTodoItemPriority } from "./cyclePriority.js";
+
 
 export let todoList = [];
 
@@ -10,7 +13,7 @@ todoList.push(
     `Title 1`,
     `Description 1`,
     `Due date 1`,
-    `Priority 1`,
+    `Low`,
     `Notes 1`,
     `Project 1`,
     true,
@@ -19,3 +22,6 @@ todoList.push(
 
 createDummyData(todoList);
 displayTodos(todoList);
+console.log(todoList)
+
+
