@@ -19,6 +19,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 16px;
+  width: 80%;
 }
 
 .noTodosText {
@@ -62,4 +63,18 @@ p {
 }
 .todo-priority-low {
   background-color: green;
+}
+
+.two-containers {
+  display: flex;
+}
+
+.todoFormContainer {
+  width: 20%;
+  background-color: red;
+}
+
+.todoForm {
+  display: flex;
+  flex-direction: column;
 }
