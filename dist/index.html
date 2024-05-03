@@ -23,9 +23,7 @@
 
     <div class="two-containers">
       <div class="todoFormContainer">
-        <form action="" class="todoForm" id="newTodoForm">
-          
-          
+        <form action="" class="newTodoForm" id="newTodoForm">
 
           <label for="newTodoTitle">Title</label>
           <input type="text" name="newTodoTitle" id="newTodoTitle">
@@ -33,26 +31,26 @@
           <br>
 
           <label for="todoDescription">Description</label>
-          <textarea name="todoDescription" id=""></textarea>
+          <textarea name="newTodoDescription" id=""></textarea>
           <br>
 
           <label for="todoDueDate">Due Date</label>
-          <input type="date" name="todoDueDate" id="todoDueDate">
+          <input type="date" name="todoDueDate" id="newTodoDueDate">
           
           <br>
 
           <label for="priorityHigh">High</label>
-          <input type="radio" id="priorityHigh" name="todoPriority" value="high">
+          <input type="radio" id="priorityHigh" name="newTodoPriority" value="high" required>
 
           <br>
 
           <label for="priorityMedium">Medium</label>
-          <input type="radio" id="priorityMedium" name="todoPriority" value="low" checked>
+          <input type="radio" id="priorityMedium" name="newTodoPriority" value="Medium" checked>
 
           <br>
 
           <label for="priorityLow">Low </label>
-          <input type="radio" id="priorityLow" name="todoPriority" value="low"> 
+          <input type="radio" id="priorityLow" name="newTodoPriority" value="low"> 
 
           <br>
 
@@ -61,8 +59,7 @@
 
           <br>
 
-
-
+          <button type="reset">Reset toDo</button>
           <button type="submit">Add Todo</button>
         </form>
       </div>

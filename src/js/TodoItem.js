@@ -4,9 +4,9 @@ export class TodoItem {
     description,
     dueDate,
     priority,
-    notes,
+    notes = `no notes for now`,
     project,
-    completed,
+    completed = false,
   ) {
     this.title = title;
     this.description = description;
