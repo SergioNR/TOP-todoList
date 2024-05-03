@@ -27,7 +27,7 @@ export const createDummyData = (todoList) => {
           `2024-12-31`,
           `high`,
           `this is the notes`,
-          `this is the project`,
+          `dummy Data`,
           true,
         ),
       );
