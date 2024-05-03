@@ -6,6 +6,7 @@
     <title>SNR - Asset Management</title>
 
     <script defer src="bundle.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="header">
@@ -20,8 +21,55 @@
       </div>
     </div>
 
-    <div class="todoListContainer"></div>
+    <div class="two-containers">
+      <div class="todoFormContainer">
+        <form action="" class="todoForm" id="newTodoForm">
+          
+          
 
-    <link rel="stylesheet" href="../styles.css" />
+          <label for="newTodoTitle">Title</label>
+          <input type="text" name="newTodoTitle" id="newTodoTitle">
+
+          <br>
+
+          <label for="todoDescription">Description</label>
+          <textarea name="todoDescription" id=""></textarea>
+          <br>
+
+          <label for="todoDueDate">Due Date</label>
+          <input type="date" name="todoDueDate" id="todoDueDate">
+          
+          <br>
+
+          <label for="priorityHigh">High</label>
+          <input type="radio" id="priorityHigh" name="todoPriority" value="high">
+
+          <br>
+
+          <label for="priorityMedium">Medium</label>
+          <input type="radio" id="priorityMedium" name="todoPriority" value="low" checked>
+
+          <br>
+
+          <label for="priorityLow">Low </label>
+          <input type="radio" id="priorityLow" name="todoPriority" value="low"> 
+
+          <br>
+
+          <label for="newTodoProject">Project</label>
+          <input type="text" name="Project" id="newTodoProject">
+
+          <br>
+
+
+
+          <button type="submit">Add Todo</button>
+        </form>
+      </div>
+      <div class="todoListContainer"></div>
+
+    </div>
+
+    
   </body>
 </html>
