@@ -13,7 +13,10 @@ export class TodoItem {
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
-    this.project = project;
+    this.project = [`Default`].concat(project);
     this.completed = completed;
   }
 }
+
+
+// How to make the todo item appear in several 
