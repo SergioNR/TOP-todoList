@@ -9,5 +9,7 @@ export const deleteAllTodos = () => {
 };
 
 deleteAllTodosButton.addEventListener("click", () => {
+  console.log("Deleting all todos")
+
   deleteAllTodos();
 });
