@@ -3,6 +3,10 @@ import { displayTodos } from "./displayTodos";
 import { TodoItem } from "./TodoItem.js";
 import { clearTodosContainer } from "./clearTodosContainer.js";
 
+const pushItemsToLocalStorage = (todoItem) => {
+    localStorage.setItem(`todoList`, todoItem)
+  };
+  
 const newTodoForm = document.querySelector('.newTodoForm');
 
 newTodoForm.addEventListener('submit', (e) => {
@@ -24,6 +28,10 @@ newTodoForm.addEventListener('submit', (e) => {
             false,
         ),
     );
+
+    
+
+    pushItemsToLocalStorage(JSON.stringify(todoList))
 
     clearTodosContainer();
     displayTodos(todoList);
