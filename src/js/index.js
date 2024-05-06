@@ -1,8 +1,6 @@
-import { todoList } from "./todoList.js";
+import { displayTodos } from "./displayTodos.js";
 
-import { createNewTodoForm } from "./createNewTodoForm.js"
-
-
+displayTodos()
 
 // createDummyData(todoList);
 // displayTodos(todoList);
