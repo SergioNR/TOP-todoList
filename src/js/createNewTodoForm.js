@@ -1,9 +1,12 @@
 import { todoList } from "./todoList.js";
 import { TodoItem } from "./TodoItemClass.js"
+import { retrieveTodoListFromLocalStorage } from "./displayTodos.js";
 
 const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
+
+  retrieveTodoListFromLocalStorage()
 
 };
 
@@ -40,6 +43,7 @@ newTodoForm.addEventListener("submit", (e) => {
       e.target.newTodoDescription.value,
       e.target.newTodoDueDate.value,
       e.target.newTodoPriority.value,
+      undefined,
       e.target.newTodoProject.value,
       false,
   );
