@@ -22,12 +22,11 @@ The user can add a task by typing in the input field and clicking the "Add" butt
 
 - Display ToDos
 -- Need:
---- FE Display container
+--- FE Display container --> index.html ✅
 --- FE todoCard
 ---- FE todoCardTitle
 ---- FE todoCardDescription
 ---- FE todoCardButtons
-
 --- BE logic to retrieve from LocalStorage
 
 - Delete toDos

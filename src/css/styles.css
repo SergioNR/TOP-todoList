@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 16px;
 }
 
 .header h1,
@@ -15,10 +16,8 @@ p {
 }
 
 .todoListContainer {
-  border-top: 2px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-top: 16px;
   width: 80%;
 }
 
@@ -65,16 +64,28 @@ p {
   background-color: green;
 }
 
-.two-containers {
+.main-area {
   display: flex;
+  border-top: 2px black solid;
+  padding-top: 24px;
+  height: 100%;
 }
 
 .todoFormContainer {
   width: 20%;
-  background-color: red;
+  border-right: solid 2px white;
 }
 
-.todoForm {
+.newTodoForm {
   display: flex;
+  align-items: center;
   flex-direction: column;
+  padding: 16px 8px;
+  background-color: red;
+  height: 100%;
+}
+
+.formButtons {
+  display: flex;
+  gap: 8px;
 }

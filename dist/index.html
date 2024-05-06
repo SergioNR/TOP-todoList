@@ -6,7 +6,7 @@
     <title>SNR - Asset Management</title>
 
     <script defer src="bundle.js"></script>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../src/css/styles.css" />
   </head>
   <body>
     <div class="header">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="two-containers">
+    <div class="main-area">
       <div class="todoFormContainer">
         <form action="" class="newTodoForm" id="newTodoForm">
 
@@ -38,6 +38,7 @@
           <input type="date" name="todoDueDate" id="newTodoDueDate">
           
           <br>
+          <div class="newTodoItemPriorities">
 
           <label for="priorityHigh">High</label>
           <input type="radio" id="priorityHigh" name="newTodoPriority" value="high" required>
@@ -48,10 +49,10 @@
           <input type="radio" id="priorityMedium" name="newTodoPriority" value="Medium" checked>
 
           <br>
-
           <label for="priorityLow">Low </label>
           <input type="radio" id="priorityLow" name="newTodoPriority" value="low"> 
 
+        </div>
           <br>
 
           <label for="newTodoProject">Project</label>
@@ -59,8 +60,10 @@
 
           <br>
 
+          <div class="formButtons">
           <button type="reset">Reset toDo</button>
           <button type="submit">Add Todo</button>
+        </div>
         </form>
       </div>
       <div class="todoListContainer"></div>
