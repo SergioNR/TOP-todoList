@@ -1,6 +1,6 @@
 import { displayTodos } from "./displayTodos.js";
 
-displayTodos()
+// displayTodos()
 
 // createDummyData(todoList);
 // displayTodos(todoList);
