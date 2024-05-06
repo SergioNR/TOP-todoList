@@ -27,7 +27,7 @@ The user can add a task by typing in the input field and clicking the "Add" butt
 ---- FE todoCardTitle
 ---- FE todoCardDescription
 ---- FE todoCardButtons
---- BE logic to retrieve from LocalStorage
+--- BE logic to retrieve from LocalStorage  --> displayTodos.js ✅
 
 - Delete toDos
 
