@@ -1,18 +1,50 @@
 import { createTodoItemCard } from "./createTodoItemCard.js";
+// watch when the localStorage changes? or call the displayTodos function when pushing to localStorage?
 
-export const displayTodos = (todoList) => {
-  const todoListContainer = document.querySelector(".todoListContainer");
+//! AS A TEMPORARY SOLUTION, WE WILL CALL THE DISPLAYTODOS FUNCTION EVERYTIME WE PUSH TO LOCALSTORAGE
 
-  if (todoList.length <= 0) {
-    const noTodosText = document.createElement("p");
-    noTodosText.classList.add("noTodosText");
+const retrieveTodoListFromLocalStorage = () => {
+  
+  let retrievedTodoList = localStorage.getItem(`todoList`)
 
-    noTodosText.innerText = "No pending To-Dos - ¡Congratulations!";
+  if (retrievedTodoList === null) {
+    console.log(`no todolist available in local storage`)
 
-    todoListContainer.appendChild(noTodosText);
-  } else {
-    todoList.forEach((todoItem) => {
-      todoListContainer.appendChild(createTodoItemCard(todoItem));
-    });
+    return null
   }
-};
+  else {
+    let parsedTodoList = JSON.parse(retrievedTodoList)  
+  
+    return parsedTodoList;
+  }
+
+}
+
+const todoListContainer = document.querySelector(`.todoListContainer`)
+
+export const displayTodos = () => {
+
+  let parsedTodoList = retrieveTodoListFromLocalStorage()
+
+  console.log(parsedTodoList)
+  
+  if (parsedTodoList === null || parsedTodoList.length <= 0) {
+    console.log(`no todos in this list`)
+
+    const noTodosText = document.createElement(`p`)
+
+    noTodosText.innerText = `Congratulations, no toDos left!`
+
+    noTodosText.classList.add(`noTodosText`)
+
+    todoListContainer.append(noTodosText)
+
+  } 
+
+  else {
+    parsedTodoList.forEach( (todoItem) => {
+      console.log(`item here`)
+    })
+  }
+
+}
