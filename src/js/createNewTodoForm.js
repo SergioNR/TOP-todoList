@@ -1,12 +1,12 @@
 import { todoList } from "./todoList.js";
 import { TodoItem } from "./TodoItemClass.js"
-import { retrieveTodoListFromLocalStorage } from "./displayTodos.js";
+import { displayTodos } from "./displayTodos.js";
 
 const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
 
-  retrieveTodoListFromLocalStorage()
+displayTodos() //* Calling the displayTodos function everytime the localStorage is updated
 
 };
 
