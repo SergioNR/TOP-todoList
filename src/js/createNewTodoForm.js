@@ -5,10 +5,21 @@ const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
 
-  localStorage.removeItem(`todoListJSON`)
 };
 
-const pushNewTodoItemToArray = (todoItem) => {
+const removeItemFromTodoList = () => {
+ // TODO - ADD LOGIC TO FIND THE RESPECTIVE TODO AND DELETE IT
+
+  let itemToRemove = todoList.indexOf(todoTitle)
+
+  todoList.splice(itemToRemove, 1);
+  
+  //! THIS APPROACH ASSUMES THERE WILL ALWAYS BE DIFFERENT TITLES, OTHERWISE IT WILL ALWAYS TAKE THE FIRST - MAYBE USE SOME KIND OF NUMERICAL ID TO PREVENT INCORRECT BEHAUVIOR?
+
+  pushTodoListToLocalStorage(todoList)
+}
+
+const pushNewTodoItemToTodoList = (todoItem) => {
   todoList.push(todoItem) // No new to pass todoList as variable because it is in the global scope and is being imported already
 
   pushTodoListToLocalStorage(todoList)
@@ -33,7 +44,7 @@ newTodoForm.addEventListener("submit", (e) => {
       false,
   );
 
-  pushNewTodoItemToArray(todoItem);
+  pushNewTodoItemToTodoList(todoItem);
 
 });
 

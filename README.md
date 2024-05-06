@@ -15,10 +15,10 @@ The user can add a task by typing in the input field and clicking the "Add" butt
 -- Need: 
 --- FE Form --> index.html ✅
 --- BE Logic to create toDo --> createNewTodoForm.js ✅
---- BE Logic (event Listener to push to array) --> createNewTodoForm.js 
+--- BE Logic to push new TodoItems to todoList array --> createNewTodoForm.js ✅
 --- Array to store toDos ✅ --> todoList.js
 --- TodoItem Class Constructor ✅ --> TodoItemClass.js
---- Local Storage
+--- BE Logic to push todoList array to localStorage ✅
 
 - Display ToDos
 -- Need:
