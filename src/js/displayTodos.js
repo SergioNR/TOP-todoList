@@ -43,7 +43,11 @@ export const displayTodos = () => {
 
   else {
     parsedTodoList.forEach( (todoItem) => {
-      createTodoItemCard(todoItem)
+
+      const todoContainer = document.querySelector(`.todoContainer`)
+
+      todoContainer.append(createTodoItemCard(todoItem))
+      
     })
   }
 
