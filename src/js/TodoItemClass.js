@@ -6,7 +6,7 @@ export class TodoItem {
     priority,
     notes = `no notes for now`,
     project,
-    completed = false,
+    completionStatus = false,
   ) {
     this.title = title;
     this.description = description;
@@ -14,7 +14,7 @@ export class TodoItem {
     this.priority = priority;
     this.notes = notes;
     this.project = [`Default`].concat(project);
-    this.completed = completed;
+    this.completionStatus = completionStatus;
   }
 }
 
