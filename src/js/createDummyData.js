@@ -1,4 +1,4 @@
-import { TodoItem } from "./TodoItem.js";
+import { TodoItem } from "./TodoItemClass.js";
 import { todoList } from "./index.js";
 import { displayTodos } from "./displayTodos.js";
 import { clearTodosContainer } from "./clearTodosContainer.js";
