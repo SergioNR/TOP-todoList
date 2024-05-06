@@ -36,6 +36,7 @@ const newTodoForm = document.querySelector(".newTodoForm");
 
 
 newTodoForm.addEventListener("submit", (e) => {
+
   e.preventDefault();
 
   let todoItem = new TodoItem(

@@ -43,7 +43,7 @@ export const displayTodos = () => {
 
   else {
     parsedTodoList.forEach( (todoItem) => {
-      console.log(`item here`)
+      createTodoItemCard(todoItem)
     })
   }
 
