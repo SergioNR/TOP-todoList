@@ -1,6 +1,8 @@
 import { displayTodos } from "./displayTodos.js";
 
-// displayTodos()
+import { creteNewTodoForm } from "./createNewTodoForm.js";
+
+displayTodos()
 
 // createDummyData(todoList);
 // displayTodos(todoList);

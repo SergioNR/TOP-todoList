@@ -10,20 +10,22 @@ displayTodos() //* Calling the displayTodos function everytime the localStorage 
 
 };
 
-const removeItemFromTodoList = () => {
- // TODO - ADD LOGIC TO FIND THE RESPECTIVE TODO AND DELETE IT
+// const removeItemFromTodoList = () => {
+//  // TODO - ADD LOGIC TO FIND THE RESPECTIVE TODO AND DELETE IT
 
-  let itemToRemove = todoList.indexOf(todoTitle)
+//   let itemToRemove = todoList.indexOf(todoTitle)
 
-  todoList.splice(itemToRemove, 1);
+//   todoList.splice(itemToRemove, 1);
   
-  //! THIS APPROACH ASSUMES THERE WILL ALWAYS BE DIFFERENT TITLES, OTHERWISE IT WILL ALWAYS TAKE THE FIRST - MAYBE USE SOME KIND OF NUMERICAL ID TO PREVENT INCORRECT BEHAUVIOR?
+//   //! THIS APPROACH ASSUMES THERE WILL ALWAYS BE DIFFERENT TITLES, OTHERWISE IT WILL ALWAYS TAKE THE FIRST - MAYBE USE SOME KIND OF NUMERICAL ID TO PREVENT INCORRECT BEHAUVIOR?
 
-  pushTodoListToLocalStorage(todoList)
-}
+//   pushTodoListToLocalStorage(todoList)
+// }
 
 const pushNewTodoItemToTodoList = (todoItem) => {
   todoList.push(todoItem) // No new to pass todoList as variable because it is in the global scope and is being imported already
+
+  console.log(todoList)
 
   pushTodoListToLocalStorage(todoList)
 }
@@ -34,10 +36,9 @@ const pushNewTodoItemToTodoList = (todoItem) => {
 
 const newTodoForm = document.querySelector(".newTodoForm");
 
-
 newTodoForm.addEventListener("submit", (e) => {
 
-  e.preventDefault();
+  e.preventDefault()
 
   let todoItem = new TodoItem(
       e.target.newTodoTitle.value,
