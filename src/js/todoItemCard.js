@@ -56,38 +56,26 @@ const createTodoPriority = (todoPriority) => {
 };
 
 const createTodoNotes = (todoNotes) => {
-    const todoNotes = document.createElement(`p`)
+    const todoNotesText = document.createElement(`p`)
 
-    todoNotes.innerText = todoNotes
+    todoNotesText.innerText = todoNotes
 
-    todoNotes.classList.add(`todoNotes`)
+    todoNotesText.classList.add(`todoNotes`)
 };
 
 const createTodoProject = (todoProjects) => {
-    const todoProjects = document.createElement(`p`)
+    const todoProjectsText = document.createElement(`p`)
 
-    todoProjects.innerText = todoProjects
+    todoProjectsText.innerText = todoProjects
 
-    todoProjects.classList.add(`todoProjects`)
+    todoProjectsText.classList.add(`todoProjects`)
 };
 
 const createTodoCompletionStatus = (todoCompletionStatus) => {
-    const todoCompletionStatus = document.createElement(`p`)
+    const todoCompletionStatusText = document.createElement(`p`)
 
-    todoCompletionStatus.innerText = todoCompletionStatus
+    todoCompletionStatusText.innerText = todoCompletionStatus
 
-    todoCompletionStatus.classList.add(`todoCompletionStatus`)
+    todoCompletionStatusText.classList.add(`todoCompletionStatus`)
 };
 
-
-/* 
-
-card - 
-- Title
-- description
-- due date
-- priority
-- notes
-- project
-- completionStatus
-*/
