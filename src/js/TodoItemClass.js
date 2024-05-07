@@ -1,9 +1,9 @@
 export class TodoItem {
   constructor(
-    title,
-    description,
-    dueDate,
-    priority,
+    title = `no title`,
+    description = `no description`,
+    dueDate = `no due date`,
+    priority = `no priority`,
     notes = `no notes for now`,
     project,
     completionStatus = false,
