@@ -21,6 +21,8 @@ export const createTodoItemCard = (todoItem) => {
     todoItemCard.append(createTodoProject(todoItem.project))
 
     todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus))
+
+    return todoItemCard;
 }
 
 const createTodoTitle = (todoTitle) => {
@@ -29,6 +31,8 @@ const createTodoTitle = (todoTitle) => {
     todoTitleText.innerText = todoTitle
 
     todoTitleText.classList.add(`todoTitle`)
+
+    return todoTitleText;
 };
 
 const createTodoDescription = (todoDescription) => {
@@ -37,6 +41,8 @@ const createTodoDescription = (todoDescription) => {
     todoDescriptionText.innerText = todoDescription
 
     todoDescriptionText.classList.add(`todoDescription`)
+
+    return todoDescriptionText;
 };
 
 const createTodoDueDate = (todoDueDate) => {
@@ -45,6 +51,8 @@ const createTodoDueDate = (todoDueDate) => {
     todoDueDateText.innerText = todoDueDate
 
     todoDueDateText.classList.add(`todoDueDate`)
+
+    return todoDueDateText;
 };
 
 const createTodoPriority = (todoPriority) => {
@@ -53,6 +61,8 @@ const createTodoPriority = (todoPriority) => {
     todoPriorityText.innerText = todoPriority
 
     todoPriorityText.classList.add(`todoPriority`)
+
+    return todoPriorityText;
 };
 
 const createTodoNotes = (todoNotes) => {
@@ -61,6 +71,8 @@ const createTodoNotes = (todoNotes) => {
     todoNotesText.innerText = todoNotes
 
     todoNotesText.classList.add(`todoNotes`)
+
+    return todoNotesText;
 };
 
 const createTodoProject = (todoProjects) => {
@@ -69,6 +81,8 @@ const createTodoProject = (todoProjects) => {
     todoProjectsText.innerText = todoProjects
 
     todoProjectsText.classList.add(`todoProjects`)
+
+    return todoProjectsText;
 };
 
 const createTodoCompletionStatus = (todoCompletionStatus) => {
@@ -77,5 +91,7 @@ const createTodoCompletionStatus = (todoCompletionStatus) => {
     todoCompletionStatusText.innerText = todoCompletionStatus
 
     todoCompletionStatusText.classList.add(`todoCompletionStatus`)
+
+    return todoCompletionStatusText;
 };
 
