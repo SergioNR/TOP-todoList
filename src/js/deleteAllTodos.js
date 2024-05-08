@@ -1,15 +1,16 @@
-import { todoList } from "./index.js";
-import { clearTodosContainer } from "./clearTodosContainer.js";
-
-let deleteAllTodosButton = document.querySelector(".deleteAllTodosButton");
+import { displayTodos } from './displayTodos.js';
+import { todoList } from './todoList.js';
+import { pushTodoListToLocalStorage } from './createNewTodoForm.js';
 
 export const deleteAllTodos = () => {
-  todoList = [];
-  clearTodosContainer();
+    todoList = []; //* NOT adding the "let" keyword here, because we are modifying the original array in the global scope
+    localStorage.removeItem(`todoList`);
+    displayTodos();
 };
 
-deleteAllTodosButton.addEventListener("click", () => {
-  console.log("Deleting all todos")
 
-  deleteAllTodos();
+const deleteAllTodosButton = document.querySelector('.deleteAllTodosButton');
+
+deleteAllTodosButton.addEventListener(`click`, () => {
+    deleteAllTodos();
 });
