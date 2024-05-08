@@ -4,9 +4,9 @@
 export let todoList = [];
 
 window.addEventListener(`load`, () => { 
-    console.log(`page is fully loaded and will proceed to check local storage for todoList`)
+    // console.log(`page is fully loaded and will proceed to check local storage for todoList`) //* DEBUG - check if the page is fully loaded
 
-    console.log(`localStorage is ${localStorage.getItem(`todoList`)}`) //* DEBUG - check the value of localStorage
+    // console.log(`localStorage is ${localStorage.getItem(`todoList`)}`) //* DEBUG - check the value of localStorage
 
     if (localStorage.getItem(`todoList`) === null) {
 
