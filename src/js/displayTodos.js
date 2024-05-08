@@ -1,4 +1,4 @@
-import { createTodoItemCard } from "./createTodoItemCard.js";
+import { createTodoItemCard } from "./todoItemCard.js";
 // watch when the localStorage changes? or call the displayTodos function when pushing to localStorage?
 
 //! AS A TEMPORARY SOLUTION, WE WILL CALL THE DISPLAYTODOS FUNCTION EVERYTIME WE PUSH TO LOCALSTORAGE
@@ -27,7 +27,12 @@ export const displayTodos = () => {
   let parsedTodoList = retrieveTodoListFromLocalStorage()
 
   console.log(parsedTodoList)
+
+  const todoListContainer = document.querySelector(`.todoListContainer`)
   
+  console.log(todoListContainer)
+
+
   if (parsedTodoList === null || parsedTodoList.length <= 0) {
     console.log(`no todos in this list`)
 
@@ -42,12 +47,13 @@ export const displayTodos = () => {
   } 
 
   else {
+
     parsedTodoList.forEach( (todoItem) => {
 
-      const todoContainer = document.querySelector(`.todoContainer`)
+    console.log(todoItem)
 
-      todoContainer.append(createTodoItemCard(todoItem))
-      
+    todoListContainer.append(createTodoItemCard(todoItem))
+
     })
   }
 
