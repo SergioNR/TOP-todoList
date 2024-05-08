@@ -2,11 +2,9 @@ import { displayTodos } from "./displayTodos.js";
 
 import { creteNewTodoForm } from "./createNewTodoForm.js";
 
-displayTodos()
+import { deleteAllTodos } from "./deleteAllTodos.js";
 
-// createDummyData(todoList);
-// displayTodos(todoList);
-// console.log(todoList);
+displayTodos()
 
 // instead of saving on an array, we want to save the items onto local storage
 
