@@ -1,8 +1,6 @@
 export const createTodoItemCard = (todoItem) => {
 
-    console.log(todoItem)
-
-    console.log(`hello, this is a new item`)
+    console.log(todoItem);
 
     const todoItemCard = document.createElement(`div`)
 
