@@ -1,7 +1,1 @@
-//! Change the completion status of the todo item
-
-//! Create a new completion status element
-
-//! Get the completion status element
-
-//! Refresh the color of the todo item card
+//! AS A TEMPORARY SOLUTION, WE WILL CALL THE DISPLAYTODOS FUNCTION EVERYTIME WE PUSH TO LOCALSTORAGE

@@ -1,4 +1,4 @@
-export const clearTodosContainer = () => {
+export const clearTodoListContainer = () => {
   const todoListContainer = document.querySelector(".todoListContainer");
   todoListContainer.innerHTML = "";
 };
