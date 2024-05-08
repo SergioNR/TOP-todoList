@@ -10,7 +10,7 @@ const retrieveTodoListFromLocalStorage = () => {
   let retrievedTodoList = localStorage.getItem(`todoList`)
 
   if (retrievedTodoList === null) {
-    console.log(`no todolist available in local storage`)
+    console.log(`no todolist available in local storage - retrievedTodoListFromLocalStorage()`)
 
     return null
   }
@@ -30,12 +30,10 @@ export const displayTodos = () => {
 
   let parsedTodoList = retrieveTodoListFromLocalStorage()
 
-  console.log(parsedTodoList)
+  // console.log(parsedTodoList) //* DEBUG - check the value of parsedTodoList
 
   const todoListContainer = document.querySelector(`.todoListContainer`)
   
-  console.log(todoListContainer)
-
 
   if (parsedTodoList === null || parsedTodoList.length <= 0) {
     console.log(`no todos in this list`)
@@ -53,8 +51,6 @@ export const displayTodos = () => {
   else {
 
     parsedTodoList.forEach( (todoItem) => {
-
-    console.log(todoItem)
 
     todoListContainer.append(createTodoItemCard(todoItem))
 
