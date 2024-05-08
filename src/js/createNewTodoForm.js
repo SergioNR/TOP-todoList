@@ -2,7 +2,7 @@ import { todoList } from "./todoList.js";
 import { TodoItem } from "./TodoItemClass.js"
 import { displayTodos } from "./displayTodos.js";
 
-const pushTodoListToLocalStorage = (todoList) => {
+export const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
 
@@ -23,9 +23,9 @@ displayTodos() //* Calling the displayTodos function everytime the localStorage 
 // }
 
 const pushNewTodoItemToTodoList = (todoItem) => {
-  todoList.push(todoItem) // No new to pass todoList as variable because it is in the global scope and is being imported already
+  todoList.push(todoItem) //* No need to pass todoList as variable because it is in the global scope and is being imported already
 
-  console.log(todoList)
+  // console.log(todoList) //* DEBUG - check the value of todoList
 
   pushTodoListToLocalStorage(todoList)
 }
@@ -40,6 +40,8 @@ newTodoForm.addEventListener("submit", (e) => {
 
   e.preventDefault()
 
+  console.log(todoList)
+
   let todoItem = new TodoItem(
       e.target.newTodoTitle.value,
       e.target.newTodoDescription.value,
@@ -49,6 +51,8 @@ newTodoForm.addEventListener("submit", (e) => {
       e.target.newTodoProject.value,
       false,
   );
+
+  console.log(todoItem)
 
   pushNewTodoItemToTodoList(todoItem);
 
