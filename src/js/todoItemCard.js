@@ -20,6 +20,8 @@ export const createTodoItemCard = (todoItem) => {
 
     todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus))
 
+    todoItemCard.append(createMarkAsCompletedButton(todoItem.completionStatus))
+
     return todoItemCard;
 }
 
@@ -93,3 +95,38 @@ const createTodoCompletionStatus = (todoCompletionStatus) => {
     return todoCompletionStatusText;
 };
 
+const toggleCompletionStatus = (todoItemCompletionStatus) => {
+    if (todoItemCompletionStatus === true) {
+        todoItemCompletionStatus = false
+        return todoItemCompletionStatus
+    } else {
+        todoItemCompletionStatus = true
+        return todoItemCompletionStatus
+    }
+}
+
+const createMarkAsCompletedButton = (todoItemCompletionStatus) => {
+
+    const markAsCompletedButton = document.createElement(`button`)
+
+    if (todoItemCompletionStatus === true) {
+        markAsCompletedButton.innerText = `Mark as Incomplete`
+    } else {
+        markAsCompletedButton.innerText = `Mark as Completed`
+    }
+
+    markAsCompletedButton.addEventListener(`click`, () => {
+        console.log(`mark as completed button clicked`)
+        toggleCompletionStatus(todoItemCompletionStatus)
+
+        console.log(`todoItemCompletionStatus is now ${todoItemCompletionStatus}`) //! Doesnt seem to be working
+    });
+    // where do i locate the event lsitener for this button?
+    // maybe in the displayTodos function?
+    // maybe in the createTodoItemCard function?
+
+
+
+
+    return markAsCompletedButton;
+}
