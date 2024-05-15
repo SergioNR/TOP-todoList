@@ -1,28 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script defer src="./main.js"></script>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNR - Asset Management</title>
+
+    <script defer src="bundle.js"></script>
+
+    <link rel="stylesheet" href="../src/css/styles.css" />
+  </head>
+  <body>
     <div class="header">
-        <h1>Todo list</h1>
-        <p>This is a todo list created for <a href="https://www.theodinproject.com">The Odin Project</a></p>
-        <div class="headerButtonContainer">
-            <button class="deleteAllTodosButton">Delete all ToDos</button>
-            <button class="createDummyDataButton">Create dummy Data</button>
-            
+      <h1>Todo list</h1>
+      <p>
+        This is a todo list created for
+        <a href="https://www.theodinproject.com">The Odin Project</a>
+      </p>
+      <div class="headerButtonContainer">
+        <button class="deleteAllTodosButton">Delete all ToDos</button>
+        <button class="createDummyDataButton">Create dummy Data</button>
+      </div>
+    </div>
+
+    <div class="main-area">
+      <div class="todoFormContainer">
+        <form action="" class="newTodoForm" id="newTodoForm">
+
+          <label for="newTodoTitle">Title</label>
+          <input type="text" name="newTodoTitle" id="newTodoTitle" required placeholder="input please" value="placeValue">
+
+          <br>
+
+          <label for="newTodoDescription">Description</label>
+          <textarea name="newTodoDescription" id="newTodoDescription"></textarea>
+          <br>
+
+          <label for="newTodoDueDate">Due Date</label>
+          <input type="date" name="newTodoDueDate" id="newTodoDueDate" required placeholder="input please" value="2024-05-02">
+          
+          <br>
+          <div class="newTodoItemPriorities">
+
+          <label for="priorityHigh">High</label>
+          <input type="radio" id="priorityHigh" name="newTodoPriority" value="high" required>
+
+          <br>
+
+          <label for="priorityMedium">Medium</label>
+          <input type="radio" id="priorityMedium" name="newTodoPriority" value="Medium" checked>
+
+          <br>
+          <label for="priorityLow">Low </label>
+          <input type="radio" id="priorityLow" name="newTodoPriority" value="low"> 
+
         </div>
-    </div>
-    
-    <div class="todoListContainer">
+          <br>
+
+          <label for="newTodoProject">Project</label>
+          <input type="text" name="Project" id="newTodoProject">
+
+          <br>
+          <button type="reset">Reset toDo</button>
+          <button type="submit">Add Todo</button>
+
+          <div class="formButtons">
+        </div>
+        </form>
+      </div>
+      <div class="todoListContainer"></div>
 
     </div>
 
     
-    <link rel="stylesheet" href="../styles.css">
-</body>
+  </body>
 </html>
