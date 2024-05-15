@@ -1,6 +1,6 @@
-import { toggleTodoItemCompletionStatus } from "./toggleTodoItemCompletionStatus.js";
+import { toggleTodoItemCompletionStatus } from "./P-toggleTodoItemCompletionStatus.js";
 import { createTodoItemCompletionStatus } from "./createTodoItemCompletionStatus.js";
-import { refreshTodoItemCardColor } from "./refreshTodoItemCardColor.js";
+import { refreshTodoItemCardColor } from "./P-refreshTodoItemCardColor.js";
 
 export const createToggleTodoItemCompletionStatusButton = (
   todoItem,
