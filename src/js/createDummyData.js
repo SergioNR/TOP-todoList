@@ -1,24 +1,25 @@
+import { todoList } from "./todoList.js";
 import { TodoItem } from "./TodoItemClass.js";
-import { todoList } from "./index.js";
-import { displayTodos } from "./displayTodos.js";
-import { clearTodosContainer } from "./clearTodosContainer.js";
+import { pushTodoListToLocalStorage } from "./createNewTodoForm.js";
 
 let createDummyDataButton = document.querySelector(".createDummyDataButton");
 
 createDummyDataButton.addEventListener("click", () => {
-  clearTodosContainer();
   createDummyData(todoList);
-  displayTodos(todoList);
 });
 
 export const createDummyData = (todoList) => {
-  let dummyTodoItems = 3;
-  // prompt('How many dummy To-Dos would you like to create?');
+  
+  let dummyTodoItems = prompt(`how many dummy To-Dos would you like to create?`);
 
   if (isNaN(dummyTodoItems) === true) {
+    
     alert(`Please enter a number.`);
-    // createDummyData(todoList);
+
   } else {
+
+    const todoTitle = generateTodoTitle();
+
     for (let i = 0; i < dummyTodoItems; i++) {
       todoList.push(
         new TodoItem(
@@ -33,4 +34,26 @@ export const createDummyData = (todoList) => {
       );
     }
   }
+
+  pushTodoListToLocalStorage(todoList);
 };
+
+generateTodoTitle = () => {
+  let randomWords = [
+    `hello`,
+    `world`,
+    `this`,
+    `is`,
+    `a`,
+    `random`,
+    `title`,
+    `for`,
+    `a`,
+    `todo`,
+  ];
+
+  let randomTitle = randomWords[Math.floor(Math.random() * randomWords.length)];
+
+  return randomTitle;
+}
+
