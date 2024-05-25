@@ -19,6 +19,8 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 80%;
+  gap: 16px;
+  padding: 0px 16px;
 }
 
 .noTodosText {
@@ -28,18 +30,6 @@ p {
   color: green;
 }
 
-.todoCard {
-  border: solid 2px blue;
-  color: white;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  background: url(../media/facebook.png);
-}
 
 .todoCardRed {
   background-color: red;
@@ -88,4 +78,33 @@ p {
 .formButtons {
   display: flex;
   gap: 8px;
+}
+
+.todoItemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: solid 2px black;
+  background-color: gray;
+  color: white;
+  border-radius:16px;
+  text-align: center;
+}
+
+.buttonsDiv {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.toggleCompletionStatusButton, .deleteTodoButton {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+}
+
+.todoTitle {
+  margin: 0px;
 }
