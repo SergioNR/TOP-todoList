@@ -19,6 +19,8 @@ export const createDummyData = (todoList) => {
   } else {
 
     const todoTitle = generateTodoTitle();
+    
+    const todoDescription = generateTodoDescription();
 
     for (let i = 0; i < dummyTodoItems; i++) {
       todoList.push(
