@@ -4,6 +4,8 @@ import { creteNewTodoForm } from "./createNewTodoForm.js";
 
 import { deleteAllTodos } from "./deleteAllTodos.js";
 
+import { createDummyData } from "./createDummyData.js";
+
 displayTodos()
 
 // instead of saving on an array, we want to save the items onto local storage
