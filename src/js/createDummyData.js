@@ -40,20 +40,41 @@ export const createDummyData = (todoList) => {
 
 generateTodoTitle = () => {
   let randomWords = [
-    `hello`,
-    `world`,
-    `this`,
-    `is`,
-    `a`,
-    `random`,
-    `title`,
-    `for`,
-    `a`,
-    `todo`,
+  `Organize`
+  `Exercise`
+  `Budgeting`
+  `Save`
+  `Mediate`
+  `Read`
+  `Connect`
+  `Learn`
+  `Declutter`
+  `Gratitude`
+  `Create`
+  `Rest`
+  `Plan`
+  `Reflect`
   ];
 
   let randomTitle = randomWords[Math.floor(Math.random() * randomWords.length)];
 
   return randomTitle;
 }
+
+generateTodoDescription = () => {
+  const descriptions = [
+    'A brief overview of the history of the internet and its impact on modern society.',
+    'An introduction to the principles of object-oriented programming and its applications.',
+    'A discussion on the importance of sustainable practices in modern agriculture.',
+    'An analysis of the role of artificial intelligence in healthcare and medicine.',
+    'A review of the latest trends in fashion and their influence on popular culture.',
+  ]; //* Randomly generated descriptions
+
+  const randomIndex = Math.floor(Math.random() * descriptions.length);
+  
+  return descriptions[randomIndex];
+
+}
+
+
 
