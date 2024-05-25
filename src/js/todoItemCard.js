@@ -17,10 +17,17 @@ export const createTodoItemCard = (todoItem) => {
     todoItemCard.append(createTodoNotes(todoItem.notes))
 
     todoItemCard.append(createTodoProject(todoItem.project))
-
+    
     todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus))
 
-    todoItemCard.append(createMarkAsCompletedButton(todoItem.completionStatus))
+    todoItemCard.append(createButtonsDiv()) //* Create the buttonsDiv div and append it to the todoItemCard
+
+    const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`) //* Declare the buttonsDiv div
+
+    buttonsDiv.append(createMarkAsCompletedButton(todoItem.completionStatus))
+
+
+    buttonsDiv.append(createDeleteTodoButton()) //* confirm todoCard is the correct parameter
 
     return todoItemCard;
 }
@@ -83,6 +90,13 @@ const createTodoProject = (todoProjects) => {
     todoProjectsText.classList.add(`todoProjects`)
 
     return todoProjectsText;
+};
+const createButtonsDiv = () => {
+    const buttonsDiv = document.createElement(`div`)
+
+    buttonsDiv.classList.add(`buttonsDiv`)
+
+    return buttonsDiv;
 };
 
 const createTodoCompletionStatus = (todoCompletionStatus) => {
