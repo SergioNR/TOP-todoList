@@ -24,7 +24,7 @@ export const createTodoItemCard = (todoItem) => {
 
     const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`) //* Declare the buttonsDiv div
 
-    buttonsDiv.append(createMarkAsCompletedButton(todoItem.completionStatus))
+    buttonsDiv.append(createToggleCompletionStatusButton(todoItem.completionStatus))
 
 
     buttonsDiv.append(createDeleteTodoButton()) //* confirm todoCard is the correct parameter
@@ -110,37 +110,73 @@ const createTodoCompletionStatus = (todoCompletionStatus) => {
 };
 
 const toggleCompletionStatus = (todoItemCompletionStatus) => {
+
+    console.log(`input completionStatus is ${todoItemCompletionStatus} - toggleCompletionStatus()`)
+
     if (todoItemCompletionStatus === true) {
         todoItemCompletionStatus = false
+        console.log(`completionStatus is now ${todoItemCompletionStatus} - toggleCompletionStatus()`)
         return todoItemCompletionStatus
+
     } else {
         todoItemCompletionStatus = true
+        console.log(`completionStatus is now ${todoItemCompletionStatus} - toggleCompletionStatus()`)
         return todoItemCompletionStatus
     }
 }
 
-const createMarkAsCompletedButton = (todoItemCompletionStatus) => {
 
-    const markAsCompletedButton = document.createElement(`button`)
+
+const createToggleCompletionStatusButton = (todoItemCompletionStatus) => {
+
+    const toggleCompletionStatusButton = document.createElement(`button`)
+
+    toggleCompletionStatusButton.classList.add(`toggleCompletionStatusButton`)
 
     if (todoItemCompletionStatus === true) {
-        markAsCompletedButton.innerText = `Mark as Incomplete`
+        toggleCompletionStatusButton.innerText = `Mark as Incomplete`
     } else {
-        markAsCompletedButton.innerText = `Mark as Completed`
+        toggleCompletionStatusButton.innerText = `Mark as Completed`
     }
 
-    markAsCompletedButton.addEventListener(`click`, () => {
-        console.log(`mark as completed button clicked`)
+    toggleCompletionStatusButton.addEventListener(`click`, () => {
+        console.log(`mark as completed button clicked - ToggleCompletionStatusEventListener`)
         toggleCompletionStatus(todoItemCompletionStatus)
 
-        console.log(`todoItemCompletionStatus is now ${todoItemCompletionStatus}`) //! Doesnt seem to be working
+        console.log(`todoItemCompletionStatus is now ${todoItemCompletionStatus} - 
+        markAscompletedEventListener`) //! Doesnt seem to be working
     });
+
+
+    /* 
+    
+    i need to:
+    - Have a function to read completion status and based on the input, return the opposite
+    
+    - identify the todoItem that the button is associated with and then change the completion status of that todoItem --> toggleCompletionStatus
+
+    - update the completion status of the todoItem in the todoList array and then push the updated todoList array to local storage and then display the todos again
+
+    for that, i need the event listener
+
+
+    note: im not entirely sure that the most efficnet way to do this would be to clear the todolist container and rerun the displaytodos function but its the only think i can think of right now
+    */ 
+
+
     // where do i locate the event lsitener for this button?
     // maybe in the displayTodos function?
     // maybe in the createTodoItemCard function?
 
+    return toggleCompletionStatusButton;
+}
 
+const createDeleteTodoButton = () => {
+    const deleteTodoButton = document.createElement(`button`)
 
+    deleteTodoButton.classList.add(`deleteTodoButton`)
 
-    return markAsCompletedButton;
+    deleteTodoButton.innerText = `Delete Todo`
+
+    return deleteTodoButton;
 }
