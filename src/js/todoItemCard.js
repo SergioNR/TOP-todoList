@@ -1,6 +1,9 @@
+import { todoList } from "./todoList.js";
+import { pushTodoListToLocalStorage } from "./createNewTodoForm.js";
+
 export const createTodoItemCard = (todoItem) => {
 
-    console.log(todoItem);
+    // console.log(todoItem); //* debug - Print the value of the currently being created todoItem
 
     const todoItemCard = document.createElement(`div`)
 
@@ -26,8 +29,7 @@ export const createTodoItemCard = (todoItem) => {
 
     buttonsDiv.append(createToggleCompletionStatusButton(todoItem.completionStatus))
 
-
-    buttonsDiv.append(createDeleteTodoButton()) //* confirm todoCard is the correct parameter
+    buttonsDiv.append(createDeleteTodoButton(todoItem))
 
     return todoItemCard;
 }
@@ -144,8 +146,8 @@ const createToggleCompletionStatusButton = (todoItemCompletionStatus) => {
         toggleCompletionStatus(todoItemCompletionStatus)
 
         console.log(`todoItemCompletionStatus is now ${todoItemCompletionStatus} - 
-        markAscompletedEventListener`) //! Doesnt seem to be working
-    });
+        markAscompletedEventListener`);
+    }); //! DOESNT SEEM TO BE WORKING
 
 
     /* 
@@ -171,12 +173,31 @@ const createToggleCompletionStatusButton = (todoItemCompletionStatus) => {
     return toggleCompletionStatusButton;
 }
 
-const createDeleteTodoButton = () => {
-    const deleteTodoButton = document.createElement(`button`)
+const createDeleteTodoButton = (todoItem) => {
+    const deleteTodoButton = document.createElement(`button`);
 
-    deleteTodoButton.classList.add(`deleteTodoButton`)
+    deleteTodoButton.classList.add(`deleteTodoButton`);
 
-    deleteTodoButton.innerText = `Delete Todo`
+    deleteTodoButton.innerText = `Delete Todo`;
+
+    // console.log(todoItem) //* debug - check the value of todoItem
+
+    deleteTodoButton.addEventListener(`click`, () => {
+        // console.log(`delete todo button clicked - deleteTodoButtonEventListener`) //* debug - check if the event listener is working
+        
+        // console.log(todoList); //* debug - check the value of todoList
+
+        // console.log(todoItem); //* debug - check the value of todoItem
+
+        const index = todoList.findIndex(item => item.id === todoItem.id); //? How does this work?
+
+        // console.log(index) //* debug - check the value of the current todoItem index
+
+        todoList.splice(index, 1);
+
+        pushTodoListToLocalStorage(todoList)
+    
+    })
 
     return deleteTodoButton;
 }
