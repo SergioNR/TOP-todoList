@@ -8,19 +8,7 @@ export const pushTodoListToLocalStorage = (todoList) => {
 
 displayTodos() //* Calling the displayTodos function everytime the localStorage is updated
 
-};
-
-// const removeItemFromTodoList = () => {
-//  // TODO - ADD LOGIC TO FIND THE RESPECTIVE TODO AND DELETE IT
-
-//   let itemToRemove = todoList.indexOf(todoTitle)
-
-//   todoList.splice(itemToRemove, 1);
-  
-//   //! THIS APPROACH ASSUMES THERE WILL ALWAYS BE DIFFERENT TITLES, OTHERWISE IT WILL ALWAYS TAKE THE FIRST - MAYBE USE SOME KIND OF NUMERICAL ID TO PREVENT INCORRECT BEHAUVIOR?
-
-//   pushTodoListToLocalStorage(todoList)
-// }
+}; // TODO - should not be in this file, should be in a separate file
 
 const pushNewTodoItemToTodoList = (todoItem) => {
   todoList.push(todoItem) //* No need to pass todoList as variable because it is in the global scope and is being imported already
