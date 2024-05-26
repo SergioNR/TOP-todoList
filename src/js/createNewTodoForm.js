@@ -30,14 +30,14 @@ newTodoForm.addEventListener("submit", (e) => {
 
   console.log(todoList)
 
-  let todoItem = new TodoItem(
-      e.target.newTodoTitle.value,
-      e.target.newTodoDescription.value,
-      e.target.newTodoDueDate.value,
-      e.target.newTodoPriority.value,
-      undefined,
-      e.target.newTodoProject.value,
-      false,
+  let todoItem = createNewTodo(
+    e.target.newTodoTitle.value,
+    e.target.newTodoDescription.value,
+    e.target.newTodoDueDate.value,
+    e.target.newTodoPriority.value,
+    undefined,
+    e.target.newTodoProject.value,
+    false,
   );
 
   console.log(todoItem)
@@ -46,8 +46,19 @@ newTodoForm.addEventListener("submit", (e) => {
 
 });
 
+export const createNewTodo = (title, description, dueDate, priority, notes, project, status) => {
 
-// When do i want to push the todoList to local storage? - i need to push it to local storage because otherwise the key in localStorage will be overwritten
+  let todoItem = new TodoItem(
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
+    project,
+    status,
+  );
 
-// maybe everytime the todoList is updated? how do i do that?
+  return todoItem
+}
+
 
