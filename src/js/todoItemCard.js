@@ -115,19 +115,6 @@ const createTodoCompletionStatus = (todoCompletionStatus, todoItemCard) => {
     }
 
     return todoCompletionStatusText;
-
-    /* if the TODOITEm is completed, i want to add the following visuals:
-    - strike through the text - Which text? The todoTitleText?
-    - todoItem background color green
-
-    if the TODOITEM is pending, i want to add the following visuals:
-    - no strike through the text, which text? The todoTitleText? or everything?
-    - todoItem background color red
-
-    1- i need to select the todoItemCard - Since its in the creation process, i can do it here
-
-    - maybe i need to do it with the ID of the todoItem? - but that might be a bit overkill?
-    */
 };
 
 const createButtonsDiv = () => {
