@@ -21,7 +21,7 @@ export const createTodoItemCard = (todoItem) => {
 
     todoItemCard.append(createTodoProject(todoItem.project))
     
-    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus))
+    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard))
 
     todoItemCard.append(createButtonsDiv()) //* Create the buttonsDiv div and append it to the todoItemCard
 
@@ -94,15 +94,9 @@ const createTodoProject = (todoProjects) => {
     return todoProjectsText;
 };
 
-const createButtonsDiv = () => {
-    const buttonsDiv = document.createElement(`div`)
+const createTodoCompletionStatus = (todoCompletionStatus, todoItemCard) => {
 
-    buttonsDiv.classList.add(`buttonsDiv`)
-
-    return buttonsDiv;
-};
-
-const createTodoCompletionStatus = (todoCompletionStatus) => {
+    
     const todoCompletionStatusText = document.createElement(`p`)
 
     todoCompletionStatusText.innerText = todoCompletionStatus
@@ -110,14 +104,25 @@ const createTodoCompletionStatus = (todoCompletionStatus) => {
     todoCompletionStatusText.classList.add(`todoCompletionStatus`)
 
     if (todoCompletionStatus === true) {
-        todoCompletionStatusText.innerText = `Completed`
+        todoCompletionStatusText.innerText = `Completed`;
+        todoItemCard.classList.add(`todoCompleted`);
+ 
     }
 
     else {
-        todoCompletionStatusText.innerText = `Pending`
+        todoCompletionStatusText.innerText = `Pending`;
+        todoItemCard.classList.add(`todoPending`);
     }
 
     return todoCompletionStatusText;
+};
+
+const createButtonsDiv = () => {
+    const buttonsDiv = document.createElement(`div`)
+
+    buttonsDiv.classList.add(`buttonsDiv`)
+
+    return buttonsDiv;
 };
 
 const toggleCompletionStatus = (todoItemCompletionStatus) => {
@@ -156,7 +161,7 @@ const createToggleCompletionStatusButton = (todoItem) => {
     toggleCompletionStatusButton.addEventListener(`click`, () => {
         // console.log(`mark as completed button clicked - ToggleCompletionStatusEventListener`) //* debug - check if the event listener is working
 
-        console.log(todoItem)
+        // console.log(todoItem) //* debug - check the value of the todoItem
 
         const index = todoList.findIndex(item => item.id === todoItem.id) //* Find the index of the current todoItem in the todoList array
 
