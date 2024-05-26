@@ -91,12 +91,21 @@ p {
   border-radius:16px;
   text-align: center;
 }
+.todoCompleted {
+  background-color: green;
+}
+
+.todoPending {
+  background-color: red;
+}
 
 .buttonsDiv {
   display: flex;
   gap: 8px;
   flex-direction: column;
+  text-decoration: none;
 }
+
 
 .toggleCompletionStatusButton, .deleteTodoButton {
   padding: 8px;
@@ -108,3 +117,4 @@ p {
 .todoTitle {
   margin: 0px;
 }
+
