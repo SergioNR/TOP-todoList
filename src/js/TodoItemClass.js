@@ -1,4 +1,3 @@
-import { v4 as uuidGenerator } from "uuid";
 export class TodoItem {
   constructor(
     title = `no title`,
@@ -8,7 +7,7 @@ export class TodoItem {
     notes = `no notes for now`,
     project,
     completionStatus = false,
-    id = uuidGenerator()
+    id = crypto.randomUUID()
   ) {
     this.title = title;
     this.description = description;
