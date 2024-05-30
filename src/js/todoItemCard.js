@@ -239,37 +239,38 @@ const createEditTodoButton = (todoItem) => {
 
 const editTodoItem = (todoItem) => {
 
-    // TODO #13 - make sure only one edit form can be active at the same time - currently it is possible to open multiple edit forms but only one will work
-    const todoListContainer = document.querySelector(`.todoListContainer`)
+// TODO #13 - make sure only one edit form can be active at the same time - currently it is possible to open multiple edit forms but only one will work
+const todoListContainer = document.querySelector(`.todoListContainer`)
 
-    const index = todoList.findIndex(item => item.id === todoItem.id);
+const index = todoList.findIndex(item => item.id === todoItem.id);
 
-    console.log(index); //* debug - check the value of the current todoItem index
+console.log(index); //* debug - check the value of the current todoItem index
 
+const editTodoForm = document.createElement(`form`);
+editTodoForm.classList.add(`editTodoForm`);
+editTodoForm.id = `editTodoForm`;
+todoListContainer.prepend(editTodoForm); // TODO - CHANGE INTO A MODAL #12
 
-    const editTodoForm = document.createElement(`form`);
-    editTodoForm.classList.add(`editTodoForm`);
-    editTodoForm.id = `editTodoForm`;
-    todoListContainer.prepend(editTodoForm); // TODO - CHANGE INTO A MODAL #12
+const editTodoHeader = document.createElement(`h1`);
+editTodoHeader.innerText = `Edit Todo`;
+editTodoForm.append(editTodoHeader);
 
-    const editTodoHeader = document.createElement(`h1`);
-    editTodoHeader.innerText = `Edit Todo`;
-    editTodoForm.append(editTodoHeader);
+const editTodoTitleLable = document.createElement(`label`);
+editTodoTitleLable.classList.add(`editTodoFormLabel`)
+editTodoTitleLable.innerText = `Title`;
+editTodoTitleLable.htmlFor = `editTodoTitle`;
+editTodoForm.append(editTodoTitleLable);
 
-    const editTodoTitleLable = document.createElement(`label`);
-    editTodoTitleLable.innerText = `Title`;
-    editTodoTitleLable.htmlFor = `editTodoTitle`;
-    editTodoForm.append(editTodoTitleLable);
-
-    const editTodoTitle = document.createElement(`input`);
-    editTodoTitle.classList.add(`editTodoTitle`);
-    editTodoTitle.value = todoItem.title;
-    editTodoTitle.id = `editTodoTitle`;
-    editTodoTitle.name = `editTodoTitle`;
-    editTodoForm.append(editTodoTitle);
+const editTodoTitle = document.createElement(`input`);
+editTodoTitle.classList.add(`editTodoTitle`);
+editTodoTitle.value = todoItem.title;
+editTodoTitle.id = `editTodoTitle`;
+editTodoTitle.name = `editTodoTitle`;
+editTodoForm.append(editTodoTitle);
 
     // Create label and input for description
 const editTodoDescriptionLabel = document.createElement(`label`);
+editTodoDescriptionLabel.classList.add(`editTodoFormLabel`)
 editTodoDescriptionLabel.innerText = `Description`;
 editTodoDescriptionLabel.htmlFor = `editTodoDescription`;
 editTodoForm.append(editTodoDescriptionLabel);
@@ -283,6 +284,7 @@ editTodoForm.append(editTodoDescription);
 
 // Create label and input for due date
 const editTodoDueDateLabel = document.createElement(`label`);
+editTodoDueDateLabel.classList.add(`editTodoFormLabel`)
 editTodoDueDateLabel.innerText = `Due Date`;
 editTodoDueDateLabel.htmlFor = `editTodoDueDate`;
 editTodoForm.append(editTodoDueDateLabel);
@@ -295,14 +297,15 @@ editTodoDueDate.id = `editTodoDueDate`;
 editTodoDueDate.name = `editTodoDueDate`;
 editTodoForm.append(editTodoDueDate);
 
-const editTodoPriorityLabel = document.createElement(`label`);
+const editTodoPriorityLabel = document.createElement(`p`);
 editTodoPriorityLabel.innerText = `Priority`;
-editTodoPriorityLabel.htmlFor = `editTodoPriority`;
+editTodoPriorityLabel.classList.add(`editTodoFormLabel`);
+// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`;
 editTodoForm.append(editTodoPriorityLabel);
 
 const priorities = ['high', 'medium', 'low'];
 
-priorities.forEach(priority => { //* Using a forEach loop instead of creating each radio button individually
+priorities.forEach(priority => { //* Using a forEach loop instead of creating each radio button individuallyk
     const radioWrapper = document.createElement('div');
     radioWrapper.classList.add('radioWrapper');
 
@@ -316,6 +319,7 @@ priorities.forEach(priority => { //* Using a forEach loop instead of creating ea
     radioWrapper.append(radioInput);
 
     const radioLabel = document.createElement('label');
+    radioLabel.classList.add(`editTodoFormLabel`)
     radioLabel.htmlFor = `editTodoPriority-${priority}`;
     radioLabel.innerText = priority;
     radioWrapper.append(radioLabel);
@@ -338,7 +342,7 @@ editTodoForm.append(todoEditSubmitButton);
 
 editTodoForm.addEventListener(`submit`, (e) => {
     e.preventDefault();
-
+    
     console.log(todoList); //* debug - check the value of todoList BEFORE the edit
 
     todoList[index].title = e.target.editTodoTitle.value;

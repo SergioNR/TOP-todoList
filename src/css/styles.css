@@ -125,3 +125,7 @@ p {
   padding: 16px;
   background-color: yellow;
 }
+
+.editTodoFormLabel {
+  color: red;
+}
