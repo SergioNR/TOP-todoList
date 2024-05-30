@@ -1,38 +1,47 @@
 import { todoList } from "./todoList.js";
 import { pushTodoListToLocalStorage } from "./createNewTodoForm.js";
 
+
+//#region CREATE TODO ITEM CARD
+
 export const createTodoItemCard = (todoItem) => {
 
     // console.log(todoItem); //* debug - Print the value of the currently being created todoItem
 
-    const todoItemCard = document.createElement(`div`)
+    const todoItemCard = document.createElement(`div`);
 
-    todoItemCard.classList.add(`todoItemCard`)
+    todoItemCard.classList.add(`todoItemCard`);
 
-    todoItemCard.append(createTodoTitle(todoItem.title))
+    todoItemCard.append(createTodoTitle(todoItem.title));
 
-    todoItemCard.append(createTodoDescription(todoItem.description))
+    todoItemCard.append(createTodoDescription(todoItem.description));
 
-    todoItemCard.append(createTodoDueDate(todoItem.dueDate))
+    todoItemCard.append(createTodoDueDate(todoItem.dueDate));
 
-    todoItemCard.append(createTodoPriority(todoItem.priority))
+    todoItemCard.append(createTodoPriority(todoItem.priority));
 
-    todoItemCard.append(createTodoNotes(todoItem.notes))
+    todoItemCard.append(createTodoNotes(todoItem.notes));
 
-    todoItemCard.append(createTodoProject(todoItem.project))
+    todoItemCard.append(createTodoProject(todoItem.project));
     
-    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard))
+    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard));
 
-    todoItemCard.append(createButtonsDiv()) //* Create the buttonsDiv div and append it to the todoItemCard
+    todoItemCard.append(createButtonsDiv()); //* Create the buttonsDiv div and append it to the todoItemCard
 
-    const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`) //* Declare the buttonsDiv div
+    const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`); //* Declare the buttonsDiv div
 
-    buttonsDiv.append(createToggleCompletionStatusButton(todoItem))
+    buttonsDiv.append(createToggleCompletionStatusButton(todoItem));
 
-    buttonsDiv.append(createDeleteTodoButton(todoItem))
+    buttonsDiv.append(createDeleteTodoButton(todoItem));
+
+    buttonsDiv.append(createEditTodoButton(todoItem));
 
     return todoItemCard;
 }
+
+//#endregion
+
+//#region CREATE TODO ITEM CARD COMPONENTS
 
 const createTodoTitle = (todoTitle) => {
     const todoTitleText = document.createElement(`h1`)
@@ -203,3 +212,148 @@ const createDeleteTodoButton = (todoItem) => {
 
     return deleteTodoButton;
 }
+
+const createEditTodoButton = (todoItem) => {
+
+    const editTodoButton = document.createElement(`button`);
+
+    editTodoButton.classList.add(`editTodoButton`);
+
+    editTodoButton.innerText = `Edit`;
+
+    editTodoButton.addEventListener(`click`, () => {
+        editTodoItem(todoItem);
+    });
+
+    return editTodoButton;
+}
+    /*
+    
+    1- identificar el elemento - Lo podemos hacer con el id
+    2- mostrar un formulario con los datos del elemento
+    3- modificar los datos del elemento
+    4- guardar los datos modificados
+    5- push al local storage
+
+    */
+
+const editTodoItem = (todoItem) => {
+
+// TODO #13 - make sure only one edit form can be active at the same time - currently it is possible to open multiple edit forms but only one will work
+const todoListContainer = document.querySelector(`.todoListContainer`)
+
+const index = todoList.findIndex(item => item.id === todoItem.id);
+
+console.log(index); //* debug - check the value of the current todoItem index
+
+const editTodoForm = document.createElement(`form`);
+editTodoForm.classList.add(`editTodoForm`);
+editTodoForm.id = `editTodoForm`;
+todoListContainer.prepend(editTodoForm); // TODO - CHANGE INTO A MODAL #12
+
+const editTodoHeader = document.createElement(`h1`);
+editTodoHeader.innerText = `Edit Todo`;
+editTodoForm.append(editTodoHeader);
+
+const editTodoTitleLable = document.createElement(`label`);
+editTodoTitleLable.classList.add(`editTodoFormLabel`)
+editTodoTitleLable.innerText = `Title`;
+editTodoTitleLable.htmlFor = `editTodoTitle`;
+editTodoForm.append(editTodoTitleLable);
+
+const editTodoTitle = document.createElement(`input`);
+editTodoTitle.classList.add(`editTodoTitle`);
+editTodoTitle.value = todoItem.title;
+editTodoTitle.id = `editTodoTitle`;
+editTodoTitle.name = `editTodoTitle`;
+editTodoForm.append(editTodoTitle);
+
+    // Create label and input for description
+const editTodoDescriptionLabel = document.createElement(`label`);
+editTodoDescriptionLabel.classList.add(`editTodoFormLabel`)
+editTodoDescriptionLabel.innerText = `Description`;
+editTodoDescriptionLabel.htmlFor = `editTodoDescription`;
+editTodoForm.append(editTodoDescriptionLabel);
+
+const editTodoDescription = document.createElement(`textarea`);
+editTodoDescription.classList.add(`editTodoDescription`);
+editTodoDescription.value = todoItem.description;
+editTodoDescription.id = `editTodoDescription`;
+editTodoDescription.name = `editTodoDescription`;
+editTodoForm.append(editTodoDescription);
+
+// Create label and input for due date
+const editTodoDueDateLabel = document.createElement(`label`);
+editTodoDueDateLabel.classList.add(`editTodoFormLabel`)
+editTodoDueDateLabel.innerText = `Due Date`;
+editTodoDueDateLabel.htmlFor = `editTodoDueDate`;
+editTodoForm.append(editTodoDueDateLabel);
+
+const editTodoDueDate = document.createElement(`input`);
+editTodoDueDate.classList.add(`editTodoDueDate`);
+editTodoDueDate.type = `date`;
+editTodoDueDate.value = todoItem.dueDate;
+editTodoDueDate.id = `editTodoDueDate`;
+editTodoDueDate.name = `editTodoDueDate`;
+editTodoForm.append(editTodoDueDate);
+
+const editTodoPriorityLabel = document.createElement(`p`);
+editTodoPriorityLabel.innerText = `Priority`;
+editTodoPriorityLabel.classList.add(`editTodoFormLabel`);
+// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`;
+editTodoForm.append(editTodoPriorityLabel);
+
+const priorities = ['high', 'medium', 'low'];
+
+priorities.forEach(priority => { //* Using a forEach loop instead of creating each radio button individuallyk
+    const radioWrapper = document.createElement('div');
+    radioWrapper.classList.add('radioWrapper');
+
+    const radioInput = document.createElement(`input`);
+    radioInput.classList.add(`editTodoPriority`);
+    radioInput.type = `radio`;
+    radioInput.value = priority;
+    radioInput.id = `editTodoPriority-${priority}`;
+    radioInput.name = `editTodoPriority`;
+    radioInput.checked = todoItem.priority === priority;
+    radioWrapper.append(radioInput);
+
+    const radioLabel = document.createElement('label');
+    radioLabel.classList.add(`editTodoFormLabel`)
+    radioLabel.htmlFor = `editTodoPriority-${priority}`;
+    radioLabel.innerText = priority;
+    radioWrapper.append(radioLabel);
+
+    editTodoForm.append(radioWrapper);
+});
+
+const editTodoResetFormButton = document.createElement(`button`);
+editTodoResetFormButton.classList.add(`editTodoResetFormButton`);
+editTodoResetFormButton.innerText = `Reset`;
+editTodoResetFormButton.type = `reset`;
+editTodoForm.append(editTodoResetFormButton);
+
+const todoEditSubmitButton = document.createElement(`button`);
+todoEditSubmitButton.classList.add(`todoEditSubmitButton`);
+todoEditSubmitButton.type = `submit`;
+todoEditSubmitButton.innerText = `Submit`;
+editTodoForm.append(todoEditSubmitButton);
+
+
+editTodoForm.addEventListener(`submit`, (e) => {
+    e.preventDefault();
+    
+    console.log(todoList); //* debug - check the value of todoList BEFORE the edit
+
+    todoList[index].title = e.target.editTodoTitle.value;
+    todoList[index].description = e.target.editTodoDescription.value;
+    todoList[index].dueDate = e.target.editTodoDueDate.value;
+    todoList[index].priority = e.target.editTodoPriority.value;
+
+    console.log(todoList); //* debug - check the value of todoList AFTER the edit
+
+    pushTodoListToLocalStorage(todoList);
+})
+}
+
+//#endregion

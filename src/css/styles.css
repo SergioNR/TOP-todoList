@@ -107,7 +107,7 @@ p {
 }
 
 
-.toggleCompletionStatusButton, .deleteTodoButton {
+.toggleCompletionStatusButton, .deleteTodoButton, .editTodoButton {
   padding: 8px;
   border-radius: 8px;
   background-color: blue;
@@ -118,3 +118,14 @@ p {
   margin: 0px;
 }
 
+.editTodoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background-color: yellow;
+}
+
+.editTodoFormLabel {
+  color: red;
+}
