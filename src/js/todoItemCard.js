@@ -1,38 +1,47 @@
 import { todoList } from "./todoList.js";
 import { pushTodoListToLocalStorage } from "./createNewTodoForm.js";
 
+
+//#region CREATE TODO ITEM CARD
+
 export const createTodoItemCard = (todoItem) => {
 
     // console.log(todoItem); //* debug - Print the value of the currently being created todoItem
 
-    const todoItemCard = document.createElement(`div`)
+    const todoItemCard = document.createElement(`div`);
 
-    todoItemCard.classList.add(`todoItemCard`)
+    todoItemCard.classList.add(`todoItemCard`);
 
-    todoItemCard.append(createTodoTitle(todoItem.title))
+    todoItemCard.append(createTodoTitle(todoItem.title));
 
-    todoItemCard.append(createTodoDescription(todoItem.description))
+    todoItemCard.append(createTodoDescription(todoItem.description));
 
-    todoItemCard.append(createTodoDueDate(todoItem.dueDate))
+    todoItemCard.append(createTodoDueDate(todoItem.dueDate));
 
-    todoItemCard.append(createTodoPriority(todoItem.priority))
+    todoItemCard.append(createTodoPriority(todoItem.priority));
 
-    todoItemCard.append(createTodoNotes(todoItem.notes))
+    todoItemCard.append(createTodoNotes(todoItem.notes));
 
-    todoItemCard.append(createTodoProject(todoItem.project))
+    todoItemCard.append(createTodoProject(todoItem.project));
     
-    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard))
+    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard));
 
-    todoItemCard.append(createButtonsDiv()) //* Create the buttonsDiv div and append it to the todoItemCard
+    todoItemCard.append(createButtonsDiv()); //* Create the buttonsDiv div and append it to the todoItemCard
 
-    const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`) //* Declare the buttonsDiv div
+    const buttonsDiv = todoItemCard.querySelector(`.buttonsDiv`); //* Declare the buttonsDiv div
 
-    buttonsDiv.append(createToggleCompletionStatusButton(todoItem))
+    buttonsDiv.append(createToggleCompletionStatusButton(todoItem));
 
-    buttonsDiv.append(createDeleteTodoButton(todoItem))
+    buttonsDiv.append(createDeleteTodoButton(todoItem));
+
+    buttonsDiv.append(createEditTodoButton(todoItem));
 
     return todoItemCard;
 }
+
+//#endregion
+
+//#region CREATE TODO ITEM CARD COMPONENTS
 
 const createTodoTitle = (todoTitle) => {
     const todoTitleText = document.createElement(`h1`)
@@ -203,3 +212,16 @@ const createDeleteTodoButton = (todoItem) => {
 
     return deleteTodoButton;
 }
+
+const createEditTodoButton = (todoItem) => {
+
+    const editTodoButton = document.createElement(`button`);
+
+    editTodoButton.classList.add(`editTodoButton`);
+
+    editTodoButton.innerText = `Edit`;
+
+    return editTodoButton;
+}
+
+//#endregion

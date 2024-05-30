@@ -107,7 +107,7 @@ p {
 }
 
 
-.toggleCompletionStatusButton, .deleteTodoButton {
+.toggleCompletionStatusButton, .deleteTodoButton, .editTodoButton {
   padding: 8px;
   border-radius: 8px;
   background-color: blue;
