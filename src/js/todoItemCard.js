@@ -221,7 +221,135 @@ const createEditTodoButton = (todoItem) => {
 
     editTodoButton.innerText = `Edit`;
 
+    editTodoButton.addEventListener(`click`, () => {
+        editTodoItem(todoItem);
+    });
+
     return editTodoButton;
+}
+    /*
+    
+    1- identificar el elemento - Lo podemos hacer con el id
+    2- mostrar un formulario con los datos del elemento
+    3- modificar los datos del elemento
+    4- guardar los datos modificados
+    5- push al local storage
+
+    */
+
+const editTodoItem = (todoItem) => {
+
+    // TODO #13 - make sure only one edit form can be active at the same time - currently it is possible to open multiple edit forms but only one will work
+    const todoListContainer = document.querySelector(`.todoListContainer`)
+
+    const index = todoList.findIndex(item => item.id === todoItem.id);
+
+    console.log(index); //* debug - check the value of the current todoItem index
+
+
+    const editTodoForm = document.createElement(`form`);
+    editTodoForm.classList.add(`editTodoForm`);
+    editTodoForm.id = `editTodoForm`;
+    todoListContainer.prepend(editTodoForm); // TODO - CHANGE INTO A MODAL #12
+
+    const editTodoHeader = document.createElement(`h1`);
+    editTodoHeader.innerText = `Edit Todo`;
+    editTodoForm.append(editTodoHeader);
+
+    const editTodoTitleLable = document.createElement(`label`);
+    editTodoTitleLable.innerText = `Title`;
+    editTodoTitleLable.htmlFor = `editTodoTitle`;
+    editTodoForm.append(editTodoTitleLable);
+
+    const editTodoTitle = document.createElement(`input`);
+    editTodoTitle.classList.add(`editTodoTitle`);
+    editTodoTitle.value = todoItem.title;
+    editTodoTitle.id = `editTodoTitle`;
+    editTodoTitle.name = `editTodoTitle`;
+    editTodoForm.append(editTodoTitle);
+
+    // Create label and input for description
+const editTodoDescriptionLabel = document.createElement(`label`);
+editTodoDescriptionLabel.innerText = `Description`;
+editTodoDescriptionLabel.htmlFor = `editTodoDescription`;
+editTodoForm.append(editTodoDescriptionLabel);
+
+const editTodoDescription = document.createElement(`textarea`);
+editTodoDescription.classList.add(`editTodoDescription`);
+editTodoDescription.value = todoItem.description;
+editTodoDescription.id = `editTodoDescription`;
+editTodoDescription.name = `editTodoDescription`;
+editTodoForm.append(editTodoDescription);
+
+// Create label and input for due date
+const editTodoDueDateLabel = document.createElement(`label`);
+editTodoDueDateLabel.innerText = `Due Date`;
+editTodoDueDateLabel.htmlFor = `editTodoDueDate`;
+editTodoForm.append(editTodoDueDateLabel);
+
+const editTodoDueDate = document.createElement(`input`);
+editTodoDueDate.classList.add(`editTodoDueDate`);
+editTodoDueDate.type = `date`;
+editTodoDueDate.value = todoItem.dueDate;
+editTodoDueDate.id = `editTodoDueDate`;
+editTodoDueDate.name = `editTodoDueDate`;
+editTodoForm.append(editTodoDueDate);
+
+const editTodoPriorityLabel = document.createElement(`label`);
+editTodoPriorityLabel.innerText = `Priority`;
+editTodoPriorityLabel.htmlFor = `editTodoPriority`;
+editTodoForm.append(editTodoPriorityLabel);
+
+const priorities = ['high', 'medium', 'low'];
+
+priorities.forEach(priority => { //* Using a forEach loop instead of creating each radio button individually
+    const radioWrapper = document.createElement('div');
+    radioWrapper.classList.add('radioWrapper');
+
+    const radioInput = document.createElement(`input`);
+    radioInput.classList.add(`editTodoPriority`);
+    radioInput.type = `radio`;
+    radioInput.value = priority;
+    radioInput.id = `editTodoPriority-${priority}`;
+    radioInput.name = `editTodoPriority`;
+    radioInput.checked = todoItem.priority === priority;
+    radioWrapper.append(radioInput);
+
+    const radioLabel = document.createElement('label');
+    radioLabel.htmlFor = `editTodoPriority-${priority}`;
+    radioLabel.innerText = priority;
+    radioWrapper.append(radioLabel);
+
+    editTodoForm.append(radioWrapper);
+});
+
+const editTodoResetFormButton = document.createElement(`button`);
+editTodoResetFormButton.classList.add(`editTodoResetFormButton`);
+editTodoResetFormButton.innerText = `Reset`;
+editTodoResetFormButton.type = `reset`;
+editTodoForm.append(editTodoResetFormButton);
+
+const todoEditSubmitButton = document.createElement(`button`);
+todoEditSubmitButton.classList.add(`todoEditSubmitButton`);
+todoEditSubmitButton.type = `submit`;
+todoEditSubmitButton.innerText = `Submit`;
+editTodoForm.append(todoEditSubmitButton);
+
+
+editTodoForm.addEventListener(`submit`, (e) => {
+    e.preventDefault();
+
+    console.log(todoList); //* debug - check the value of todoList BEFORE the edit
+
+    todoList[index].title = e.target.editTodoTitle.value;
+    todoList[index].description = e.target.editTodoDescription.value;
+    todoList[index].dueDate = e.target.editTodoDueDate.value;
+    todoList[index].priority = e.target.editTodoPriority.value;
+
+    console.log(todoList); //* debug - check the value of todoList AFTER the edit
+
+    pushTodoListToLocalStorage(todoList);
+})
 }
 
 //#endregion
