@@ -279,7 +279,6 @@ editTodoTitle.id = `editTodoTitle`;
 editTodoTitle.name = `editTodoTitle`;
 editTodoForm.append(editTodoTitle);
 
-    // Create label and input for description
 const editTodoDescriptionLabel = document.createElement(`label`);
 editTodoDescriptionLabel.classList.add(`editTodoFormLabel`)
 editTodoDescriptionLabel.innerText = `Description`;
@@ -293,7 +292,6 @@ editTodoDescription.id = `editTodoDescription`;
 editTodoDescription.name = `editTodoDescription`;
 editTodoForm.append(editTodoDescription);
 
-// Create label and input for due date
 const editTodoDueDateLabel = document.createElement(`label`);
 editTodoDueDateLabel.classList.add(`editTodoFormLabel`)
 editTodoDueDateLabel.innerText = `Due Date`;
@@ -354,8 +352,6 @@ editTodoForm.append(todoEditSubmitButton);
 editTodoForm.addEventListener(`submit`, (e) => {
     e.preventDefault();
     
-    console.log(todoList); //* debug - check the value of todoList BEFORE the edit
-
     todoList[index].title = e.target.editTodoTitle.value;
     todoList[index].description = e.target.editTodoDescription.value;
     todoList[index].dueDate = e.target.editTodoDueDate.value;
