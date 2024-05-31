@@ -309,7 +309,7 @@ editTodoForm.append(editTodoDueDate);
 const editTodoPriorityLabel = document.createElement(`p`);
 editTodoPriorityLabel.innerText = `Priority`;
 editTodoPriorityLabel.classList.add(`editTodoFormLabel`);
-// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`;
+// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`; // TODO - IM NOT SURE WHHY THIS IS COMMENTED BUT SHOULD LOOK INTO IT
 editTodoForm.append(editTodoPriorityLabel);
 
 const priorities = ['high', 'medium', 'low'];
