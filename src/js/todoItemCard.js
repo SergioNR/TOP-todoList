@@ -233,20 +233,12 @@ const createEditTodoButton = (todoItem) => {
     editTodoButton.innerText = `Edit`;
 
     editTodoButton.addEventListener(`click`, () => {
+        console.log(todoItem); //* debug - check the value of todoItem (should be the todoItem that is being edited)
         editTodoItem(todoItem);
     });
 
     return editTodoButton;
 }
-    /*
-    
-    1- identificar el elemento - Lo podemos hacer con el id
-    2- mostrar un formulario con los datos del elemento
-    3- modificar los datos del elemento
-    4- guardar los datos modificados
-    5- push al local storage
-
-    */
 
 const editTodoItem = (todoItem) => {
 
