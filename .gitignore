@@ -1,0 +1,5 @@
+# Ignore bundle file
+/bundle.js
+
+# Ignore node_modules
+/node_modules
