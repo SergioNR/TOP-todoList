@@ -1,1 +1,3 @@
-//! DOESNT SEEM TO BE WORKING
+//! moment.js
+
+//! moment.js locale configuration
