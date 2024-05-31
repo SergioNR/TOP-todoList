@@ -66,7 +66,11 @@ const createTodoDescription = (todoDescription) => {
 const createTodoDueDate = (todoDueDate) => {
     const todoDueDateText = document.createElement(`p`)
 
-    todoDueDateText.innerText = todoDueDate
+    formattedDueDate = `123`
+
+    console.log(formattedDueDate); //* debug - check the value of the formatted due date (should be in dd/MM/yyyy format
+
+    todoDueDateText.innerText = formattedDueDate;
 
     todoDueDateText.classList.add(`todoDueDate`)
 
