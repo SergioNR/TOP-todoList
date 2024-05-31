@@ -6,7 +6,7 @@ export const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
 
-displayTodos() //* Calling the displayTodos function everytime the localStorage is updated
+//* No need to call displayTodos() here because the event listener in displayTodos.js will handle the update of the UI by watching changes in localStorage
 
 }; // TODO - should not be in this file, should be in a separate file
 
