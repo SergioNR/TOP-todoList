@@ -6,7 +6,7 @@ export const pushTodoListToLocalStorage = (todoList) => {
   localStorage.setItem(`todoList`, JSON.stringify(todoList)
   );
 
-displayTodos() //* Calling the displayTodos function everytime the localStorage is updated
+displayTodos() //* Calling the displayTodos function everytime the localStorage is manually updated
 
 }; // TODO - should not be in this file, should be in a separate file
 
@@ -17,8 +17,6 @@ const pushNewTodoItemToTodoList = (todoItem) => {
 
   pushTodoListToLocalStorage(todoList)
 }
-
-
 
 //* Whenever the form is submitted, a new toDo item is created and is pushed to the todoList array
 
