@@ -1,9 +1,13 @@
 import { createTodoItemCard } from "./todoItemCard.js";
-
 import { clearTodoListContainer } from "./clearTodoListContainer.js";
-// watch when the localStorage changes? or call the displayTodos function when pushing to localStorage?
 
-//! AS A TEMPORARY SOLUTION, WE WILL CALL THE DISPLAYTODOS FUNCTION EVERYTIME WE PUSH TO LOCALSTORAGE
+window.addEventListener('storage', function(event) {
+  if (event.key === 'todoList') {
+    // The 'todoList' in localStorage has changed
+    // You can update your UI here
+    displayTodos();
+  }
+});
 
 const retrieveTodoListFromLocalStorage = () => {
   
