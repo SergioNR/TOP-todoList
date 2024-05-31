@@ -66,11 +66,18 @@ const createTodoDescription = (todoDescription) => {
 const createTodoDueDate = (todoDueDate) => {
     const todoDueDateText = document.createElement(`p`)
 
-    formattedDueDate = `123`
+    todoDueDate = new Date(todoDueDate); //* Convert the due date to a date object so it can be worked with
 
-    console.log(formattedDueDate); //* debug - check the value of the formatted due date (should be in dd/MM/yyyy format
+    todoDueDate = todoDueDate.toLocaleString(`es-ES`, {
+        timeZone: `GMT`,
+        day: `2-digit`,
+        month: `2-digit`,
+        year: `numeric`,
+    }); //* format the todoDueDate to ES-ES locale and to NOT display the time
 
-    todoDueDateText.innerText = formattedDueDate;
+    // console.log(todoDueDate); //* debug - check the value of the due date
+
+    todoDueDateText.innerText = todoDueDate;
 
     todoDueDateText.classList.add(`todoDueDate`)
 
