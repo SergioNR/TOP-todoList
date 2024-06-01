@@ -12,19 +12,19 @@ export const createTodoItemCard = (todoItem) => {
 
     todoItemCard.classList.add(`todoItemCard`);
 
-    todoItemCard.append(createTodoTitle(todoItem.title));
+    todoItemCard.append(createTodoTitle(todoItem.todoTitle));
 
-    todoItemCard.append(createTodoDescription(todoItem.description));
+    todoItemCard.append(createTodoDescription(todoItem.todoDescription));
 
-    todoItemCard.append(createTodoDueDate(todoItem.dueDate));
+    todoItemCard.append(createTodoDueDate(todoItem.todoDueDate));
 
-    todoItemCard.append(createTodoPriority(todoItem.priority));
+    todoItemCard.append(createTodoPriority(todoItem.todoPriority));
 
-    todoItemCard.append(createTodoNotes(todoItem.notes));
+    todoItemCard.append(createTodoNotes(todoItem.todoNotes));
 
-    todoItemCard.append(createTodoProject(todoItem.project));
+    todoItemCard.append(createTodoProject(todoItem.todoProject));
     
-    todoItemCard.append(createTodoCompletionStatus(todoItem.completionStatus, todoItemCard));
+    todoItemCard.append(createTodoCompletionStatus(todoItem.todoCompletionStatus, todoItemCard));
 
     todoItemCard.append(createButtonsDiv()); //* Create the buttonsDiv div and append it to the todoItemCard
 
@@ -183,7 +183,7 @@ const createToggleCompletionStatusButton = (todoItem) => {
 
         // console.log(todoItem) //* debug - check the value of the todoItem
 
-        const index = todoList.findIndex(item => item.id === todoItem.id) //* Find the index of the current todoItem in the todoList array
+        const index = todoList.findIndex(item => item.todoId === todoItem.todoId) //* Find the index of the current todoItem in the todoList array
 
         const newTodoCompletionStatus = toggleCompletionStatus(todoItem.completionStatus) //* Toggle the completion status of the todoItem 
         //? Does this execution need to be in a separate function? 
@@ -211,7 +211,7 @@ const createDeleteTodoButton = (todoItem) => {
 
         // console.log(todoItem); //* debug - check the value of todoItem
 
-        const index = todoList.findIndex(item => item.id === todoItem.id); //? How does this work?
+        const index = todoList.findIndex(item => item.todoId === todoItem.todoId); //? How does this work?
 
         // console.log(index) //* debug - check the value of the current todoItem index
 
@@ -245,7 +245,7 @@ const editTodoItem = (todoItem) => {
 // TODO #13 - make sure only one edit form can be active at the same time - currently it is possible to open multiple edit forms but only one will work
 const todoListContainer = document.querySelector(`.todoListContainer`)
 
-const index = todoList.findIndex(item => item.id === todoItem.id);
+const index = todoList.findIndex(item => item.todoId === todoItem.todoId);
 
 console.log(index); //* debug - check the value of the current todoItem index
 
@@ -266,7 +266,7 @@ editTodoForm.append(editTodoTitleLable);
 
 const editTodoTitle = document.createElement(`input`);
 editTodoTitle.classList.add(`editTodoTitle`);
-editTodoTitle.value = todoItem.title;
+editTodoTitle.value = todoItem.todoTitle;
 editTodoTitle.id = `editTodoTitle`;
 editTodoTitle.name = `editTodoTitle`;
 editTodoForm.append(editTodoTitle);
@@ -279,21 +279,21 @@ editTodoForm.append(editTodoDescriptionLabel);
 
 const editTodoDescription = document.createElement(`textarea`);
 editTodoDescription.classList.add(`editTodoDescription`);
-editTodoDescription.value = todoItem.description;
+editTodoDescription.value = todoItem.todoDescription;
 editTodoDescription.id = `editTodoDescription`;
 editTodoDescription.name = `editTodoDescription`;
 editTodoForm.append(editTodoDescription);
 
 const editTodoDueDateLabel = document.createElement(`label`);
 editTodoDueDateLabel.classList.add(`editTodoFormLabel`)
-editTodoDueDateLabel.innerText = `Due Date`;
+editTodoDueDateLabel.innerText = `Due Date (DD/MM/YYYY)`;
 editTodoDueDateLabel.htmlFor = `editTodoDueDate`;
 editTodoForm.append(editTodoDueDateLabel);
 
 const editTodoDueDate = document.createElement(`input`);
 editTodoDueDate.classList.add(`editTodoDueDate`);
 editTodoDueDate.type = `date`;
-editTodoDueDate.value = todoItem.dueDate;
+editTodoDueDate.value = todoItem.todoDueDate;
 editTodoDueDate.id = `editTodoDueDate`;
 editTodoDueDate.name = `editTodoDueDate`;
 editTodoForm.append(editTodoDueDate);
@@ -301,28 +301,28 @@ editTodoForm.append(editTodoDueDate);
 const editTodoPriorityLabel = document.createElement(`p`);
 editTodoPriorityLabel.innerText = `Priority`;
 editTodoPriorityLabel.classList.add(`editTodoFormLabel`);
-// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`; // TODO - IM NOT SURE WHHY THIS IS COMMENTED BUT SHOULD LOOK INTO IT
+// editTodoPriorityLabel.htmlFor = `editTodoPriorityHeader`; // TODO - IM NOT SURE WHY THIS IS COMMENTED BUT SHOULD LOOK INTO IT
 editTodoForm.append(editTodoPriorityLabel);
 
 const priorities = ['high', 'medium', 'low'];
 
-priorities.forEach(priority => { //* Using a forEach loop instead of creating each radio button individuallyk
+priorities.forEach(todoPriority => { //* Using a forEach loop instead of creating each radio button individuallyk
     const radioWrapper = document.createElement('div');
     radioWrapper.classList.add('radioWrapper');
 
     const radioInput = document.createElement(`input`);
     radioInput.classList.add(`editTodoPriority`);
     radioInput.type = `radio`;
-    radioInput.value = priority;
-    radioInput.id = `editTodoPriority-${priority}`;
+    radioInput.value = todoPriority;
+    radioInput.id = `editTodoPriority-${todoPriority}`;
     radioInput.name = `editTodoPriority`;
-    radioInput.checked = todoItem.priority === priority;
+    radioInput.checked = todoItem.todoPriority === todoPriority;
     radioWrapper.append(radioInput);
 
     const radioLabel = document.createElement('label');
     radioLabel.classList.add(`editTodoFormLabel`)
-    radioLabel.htmlFor = `editTodoPriority-${priority}`;
-    radioLabel.innerText = priority;
+    radioLabel.htmlFor = `editTodoPriority-${todoPriority}`;
+    radioLabel.innerText = todoPriority;
     radioWrapper.append(radioLabel);
 
     editTodoForm.append(radioWrapper);
@@ -344,10 +344,10 @@ editTodoForm.append(todoEditSubmitButton);
 editTodoForm.addEventListener(`submit`, (e) => {
     e.preventDefault();
     
-    todoList[index].title = e.target.editTodoTitle.value;
-    todoList[index].description = e.target.editTodoDescription.value;
-    todoList[index].dueDate = e.target.editTodoDueDate.value;
-    todoList[index].priority = e.target.editTodoPriority.value;
+    todoList[index].todoTitle = e.target.editTodoTitle.value;
+    todoList[index].todoDescription = e.target.editTodoDescription.value;
+    todoList[index].todoDueDate = e.target.editTodoDueDate.value;
+    todoList[index].todoPriority = e.target.editTodoPriority.value;
 
     console.log(todoList); //* debug - check the value of todoList AFTER the edit
 
