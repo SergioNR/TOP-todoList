@@ -1,22 +1,22 @@
 export class TodoItem {
   constructor(
-    title = `no title`,
-    description = `no description`,
-    dueDate = `no due date`,
-    priority = `no priority`,
-    notes = `no notes for now`,
-    project,
-    completionStatus = false,
-    id = crypto.randomUUID()
+    todoTitle = `no title`,
+    todoDescription = `no description`,
+    todoDueDate = `no due date`,
+    todoPriority = `no priority`,
+    todoNotes = `no notes for now`,
+    todoProject,
+    todoCompletionStatus = false,
+    todoID = crypto.randomUUID()
   ) {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.notes = notes;
-    this.project = [`Default`].concat(project);
-    this.completionStatus = completionStatus;
-    this.id = id;
+    this.todoTitle = todoTitle;
+    this.todoDescription = todoDescription;
+    this.todoDueDate = todoDueDate;
+    this.todoPriority = todoPriority;
+    this.todoNotes = todoNotes;
+    this.todoProject = [`Default`].concat(todoProject);
+    this.todoCompletionStatus = todoCompletionStatus;
+    this.todoId = todoID;
   }
 }
 
